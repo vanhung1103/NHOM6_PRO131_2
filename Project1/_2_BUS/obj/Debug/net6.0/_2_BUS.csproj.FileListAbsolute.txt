@@ -1,0 +1,15 @@
+E:\git_hung\Project1\_2_BUS\bin\Debug\net6.0\_2_BUS.deps.json
+E:\git_hung\Project1\_2_BUS\bin\Debug\net6.0\_2_BUS.dll
+E:\git_hung\Project1\_2_BUS\bin\Debug\net6.0\_2_BUS.pdb
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.GeneratedMSBuildEditorConfig.editorconfig
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.AssemblyInfoInputs.cache
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.AssemblyInfo.cs
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.csproj.CoreCompileInputs.cache
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.dll
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\refint\_2_BUS.dll
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.pdb
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\ref\_2_BUS.dll
+E:\git_hung\Project1\_2_BUS\bin\Debug\net6.0\_1_DAL.dll
+E:\git_hung\Project1\_2_BUS\bin\Debug\net6.0\_1_DAL.pdb
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.csproj.AssemblyReference.cache
+E:\git_hung\Project1\_2_BUS\obj\Debug\net6.0\_2_BUS.csproj.CopyComplete

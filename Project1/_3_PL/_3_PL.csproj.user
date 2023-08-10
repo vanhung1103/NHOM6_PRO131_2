@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Views\Frm_BillDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Billl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_ChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Color.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_ForgotPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Pay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Signup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Size.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Frm_Voucher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
