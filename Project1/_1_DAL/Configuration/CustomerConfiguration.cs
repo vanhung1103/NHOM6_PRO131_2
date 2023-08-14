@@ -19,7 +19,6 @@ namespace _1_DAL.Configuration
 
             // Định nghĩa các thuộc tính
             builder.Property(c => c.CustomerId).HasColumnName("CustomerId");
-            builder.Property(c => c.voucher_Id).HasColumnName("voucher_Id");
             builder.Property(c => c.Name).HasMaxLength(255).IsRequired();
             builder.Property(c => c.Gender).HasMaxLength(10);
             builder.Property(c => c.Address).HasMaxLength(255);
@@ -29,10 +28,7 @@ namespace _1_DAL.Configuration
             builder.Property(c => c.Feedback).HasMaxLength(500);
 
             // Quan hệ một-một với bảng Vouchers
-            builder.HasOne(c => c.Voucher)
-                .WithMany()
-                .HasForeignKey(c => c.voucher_Id)
-                .OnDelete(DeleteBehavior.Restrict); // Xóa ràng buộc khi xóa voucher
+           // Xóa ràng buộc khi xóa voucher
 
             // Cấu hình các thứ khác (nếu cần)
         }

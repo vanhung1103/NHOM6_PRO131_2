@@ -38,7 +38,7 @@ namespace _1_DAL.Data
         {
             base.OnConfiguring(optionsBuilder.
 
-              UseSqlServer("Data Source=VANHUNG;Initial Catalog=db1;Integrated Security=True"));
+              UseSqlServer("Data Source=VANHUNG;Initial Catalog=db3;Integrated Security=True"));
 
 
         }

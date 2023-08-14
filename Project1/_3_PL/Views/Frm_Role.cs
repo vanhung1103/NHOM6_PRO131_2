@@ -27,7 +27,7 @@ namespace _3_PL.Views
         }
         public void LoadToGridView()
         {
-      
+
             dgv_role.Rows.Clear();
             dgv_role.ColumnCount = 2;
             dgv_role.Columns[0].Name = "ID";
@@ -41,13 +41,14 @@ namespace _3_PL.Views
             foreach (var item in roleServices.GetRole())
             {
                 dgv_role.Rows.Add(item.Id,
-                    
+
                     item.Name
                     );
             }
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
+
             RoleView roleView = new RoleView()
             {
                 Name = txt_name.Text,

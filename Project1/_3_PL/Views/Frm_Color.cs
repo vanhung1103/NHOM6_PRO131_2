@@ -23,44 +23,48 @@ namespace _3_PL.Views
             InitializeComponent();
             colorform = new ColorServices();
             maus = new ColorView();
+            LoadData();
+
         }
 
         private void Frm_Color_Load(object sender, EventArgs e)
         {
             LoadData();
         }
-        void LoadData()
-        {
-            dtg_color.Rows.Clear();
-            dtg_color.ColumnCount = 2;
-            dtg_color.Columns[0].Name = "Id";
-            dtg_color.Columns[1].Name = "Name";
-            foreach (var x in colorform.Get())
+        
+            void LoadData()
             {
-                dtg_color.Rows.Add(x.Id, x.Name);
+                dtg_color.Rows.Clear();
+                dtg_color.ColumnCount = 2;
+                dtg_color.Columns[0].Name = "Id";
+                dtg_color.Columns[1].Name = "Name";
+                foreach (var x in colorform.GetColors())
+                {
+                    dtg_color.Rows.Add(x.Id, x.Name);
+                }
             }
-        }
+        
         private void btn_add_Click(object sender, EventArgs e)
         {
             var them = new ColorView()
             {
-                Id = Guid.NewGuid(),
+                Id = id,
                 Name = txt_name.Text,
             };
             if (them.Name == maus.Name)
             {
-                MessageBox.Show("Da ton tai");
+                MessageBox.Show("Đã tồn tại màu sản phẩm");
             }
             else
             {
                 if (colorform.Add(them) != null)
                 {
                     LoadData();
-                    MessageBox.Show("Them thanh cong");
+                    MessageBox.Show("Thêm thành công");
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
                 }
             }
         }
@@ -72,11 +76,11 @@ namespace _3_PL.Views
                 maus.Name = txt_name.Text;
                 colorform.Update(maus);
                 LoadData();
-                MessageBox.Show("Sua thanh cong", "Sua", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
             }
         }
 
@@ -86,18 +90,18 @@ namespace _3_PL.Views
             {
                 colorform.Remove(maus.Id);
                 LoadData();
-                MessageBox.Show("Xoa thanh cong", "Xoa", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa thành công", "Xóa", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
             }
         }
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             string searchText = txt_search.Text.Trim();
-            var filteredSuppliers = colorform.Get().Where(x => x.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
+            var filteredSuppliers = colorform.GetColors().Where(x => x.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
             dtg_color.Rows.Clear();
             foreach (var x in filteredSuppliers)
             {

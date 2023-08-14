@@ -47,9 +47,11 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
-            cbx_hdct = new ComboBox();
+            cbx_customer = new ComboBox();
             dtp_createdate = new DateTimePicker();
             cbx_voucher = new ComboBox();
+            cbx_user = new ComboBox();
+            label10 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtg_show).BeginInit();
             SuspendLayout();
             // 
@@ -202,7 +204,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(595, 319);
+            label8.Location = new Point(733, 319);
             label8.Name = "label8";
             label8.Size = new Size(76, 25);
             label8.TabIndex = 37;
@@ -211,19 +213,19 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(148, 319);
+            label9.Location = new Point(28, 319);
             label9.Name = "label9";
-            label9.Size = new Size(139, 25);
+            label9.Size = new Size(134, 25);
             label9.TabIndex = 38;
-            label9.Text = "Hóa đơn chi tiết";
+            label9.Text = "Tên khách hàng";
             // 
-            // cbx_hdct
+            // cbx_customer
             // 
-            cbx_hdct.FormattingEnabled = true;
-            cbx_hdct.Location = new Point(282, 319);
-            cbx_hdct.Name = "cbx_hdct";
-            cbx_hdct.Size = new Size(182, 33);
-            cbx_hdct.TabIndex = 39;
+            cbx_customer.FormattingEnabled = true;
+            cbx_customer.Location = new Point(173, 319);
+            cbx_customer.Name = "cbx_customer";
+            cbx_customer.Size = new Size(182, 33);
+            cbx_customer.TabIndex = 39;
             // 
             // dtp_createdate
             // 
@@ -235,19 +237,38 @@
             // cbx_voucher
             // 
             cbx_voucher.FormattingEnabled = true;
-            cbx_voucher.Location = new Point(717, 316);
+            cbx_voucher.Location = new Point(832, 319);
             cbx_voucher.Name = "cbx_voucher";
             cbx_voucher.Size = new Size(182, 33);
             cbx_voucher.TabIndex = 41;
+            // 
+            // cbx_user
+            // 
+            cbx_user.FormattingEnabled = true;
+            cbx_user.Location = new Point(504, 319);
+            cbx_user.Name = "cbx_user";
+            cbx_user.Size = new Size(182, 33);
+            cbx_user.TabIndex = 42;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(391, 327);
+            label10.Name = "label10";
+            label10.Size = new Size(89, 25);
+            label10.TabIndex = 43;
+            label10.Text = "username";
             // 
             // Frm_Billl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1026, 616);
+            Controls.Add(label10);
+            Controls.Add(cbx_user);
             Controls.Add(cbx_voucher);
             Controls.Add(dtp_createdate);
-            Controls.Add(cbx_hdct);
+            Controls.Add(cbx_customer);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -295,8 +316,10 @@
         private Label label7;
         private Label label8;
         private Label label9;
-        private ComboBox cbx_hdct;
+        private ComboBox cbx_customer;
         private DateTimePicker dtp_createdate;
         private ComboBox cbx_voucher;
+        private ComboBox cbx_user;
+        private Label label10;
     }
 }

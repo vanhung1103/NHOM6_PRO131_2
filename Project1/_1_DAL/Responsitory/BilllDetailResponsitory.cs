@@ -49,7 +49,7 @@ namespace _1_DAL.Responsitory
             tempobj.Bill_Id = x.Bill_Id;
             tempobj.Pro_Id = x.Pro_Id;
             tempobj.Id = x.Id;
-
+           
             tempobj.MaHDCT = x.MaHDCT;
             tempobj.Quantity = x.Quantity;
             tempobj.Price = x.Price;

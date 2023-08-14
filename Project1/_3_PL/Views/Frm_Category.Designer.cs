@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label2 = new Label();
             label1 = new Label();
             txt_search = new TextBox();
             txt_name = new TextBox();
@@ -41,23 +40,39 @@
             ((System.ComponentModel.ISupportInitialize)dtg_cate).BeginInit();
             SuspendLayout();
             // 
-            // label2
+            // label1
             // 
-            
+            label1.Location = new Point(438, 195);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(125, 29);
+            label1.TabIndex = 1;
+            label1.Text = "Name";
             // 
             // txt_search
             // 
-            txt_search.Location = new Point(157, 61);
-            txt_search.Margin = new Padding(2, 2, 2, 2);
+            txt_search.Location = new Point(196, 76);
+            txt_search.Margin = new Padding(2);
             txt_search.Name = "txt_search";
-            txt_search.Size = new Size(314, 27);
+            txt_search.Size = new Size(392, 31);
             txt_search.TabIndex = 16;
             txt_search.TextChanged += txt_search_TextChanged;
-            
-            btn_delete.Location = new Point(517, 295);
-            btn_delete.Margin = new Padding(2, 2, 2, 2);
+            // 
+            // txt_name
+            // 
+            txt_name.Location = new Point(476, 228);
+            txt_name.Margin = new Padding(4, 4, 4, 4);
+            txt_name.Name = "txt_name";
+            txt_name.Size = new Size(124, 31);
+            txt_name.TabIndex = 17;
+            txt_name.TextChanged += txt_name_TextChanged;
+            // 
+            // btn_delete
+            // 
+            btn_delete.Location = new Point(646, 369);
+            btn_delete.Margin = new Padding(2);
             btn_delete.Name = "btn_delete";
-            btn_delete.Size = new Size(106, 39);
+            btn_delete.Size = new Size(132, 49);
             btn_delete.TabIndex = 14;
             btn_delete.Text = "Delete";
             btn_delete.UseVisualStyleBackColor = true;
@@ -65,10 +80,10 @@
             // 
             // btn_update
             // 
-            btn_update.Location = new Point(517, 233);
-            btn_update.Margin = new Padding(2, 2, 2, 2);
+            btn_update.Location = new Point(646, 291);
+            btn_update.Margin = new Padding(2);
             btn_update.Name = "btn_update";
-            btn_update.Size = new Size(106, 39);
+            btn_update.Size = new Size(132, 49);
             btn_update.TabIndex = 13;
             btn_update.Text = "Update";
             btn_update.UseVisualStyleBackColor = true;
@@ -76,10 +91,10 @@
             // 
             // btn_add
             // 
-            btn_add.Location = new Point(517, 166);
-            btn_add.Margin = new Padding(2, 2, 2, 2);
+            btn_add.Location = new Point(646, 208);
+            btn_add.Margin = new Padding(2);
             btn_add.Name = "btn_add";
-            btn_add.Size = new Size(106, 39);
+            btn_add.Size = new Size(132, 49);
             btn_add.TabIndex = 12;
             btn_add.Text = "Add";
             btn_add.UseVisualStyleBackColor = true;
@@ -90,12 +105,12 @@
             dtg_cate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtg_cate.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtg_cate.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            dtg_cate.Location = new Point(34, 142);
-            dtg_cate.Margin = new Padding(2, 2, 2, 2);
+            dtg_cate.Location = new Point(42, 178);
+            dtg_cate.Margin = new Padding(2);
             dtg_cate.Name = "dtg_cate";
             dtg_cate.RowHeadersWidth = 62;
             dtg_cate.RowTemplate.Height = 33;
-            dtg_cate.Size = new Size(288, 180);
+            dtg_cate.Size = new Size(360, 225);
             dtg_cate.TabIndex = 11;
             dtg_cate.CellContentClick += dtg_color_CellContentClick;
             // 
@@ -113,10 +128,9 @@
             // 
             // Frm_Category
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(657, 372);
-            Controls.Add(label2);
+            ClientSize = new Size(821, 465);
             Controls.Add(label1);
             Controls.Add(txt_search);
             Controls.Add(txt_name);
@@ -124,7 +138,7 @@
             Controls.Add(btn_update);
             Controls.Add(btn_add);
             Controls.Add(dtg_cate);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Frm_Category";
             Text = "Frm_Category";
             Load += Frm_Category_Load;
@@ -134,8 +148,6 @@
         }
 
         #endregion
-
-        private Label label2;
         private Label label1;
         private TextBox txt_search;
         private TextBox txt_name;

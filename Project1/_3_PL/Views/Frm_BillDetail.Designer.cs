@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             cbx_pro = new ComboBox();
-            cbx_hdct = new ComboBox();
+            cbx_hd = new ComboBox();
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
@@ -57,13 +57,13 @@
             cbx_pro.Size = new Size(182, 33);
             cbx_pro.TabIndex = 63;
             // 
-            // cbx_hdct
+            // cbx_hd
             // 
-            cbx_hdct.FormattingEnabled = true;
-            cbx_hdct.Location = new Point(266, 302);
-            cbx_hdct.Name = "cbx_hdct";
-            cbx_hdct.Size = new Size(182, 33);
-            cbx_hdct.TabIndex = 61;
+            cbx_hd.FormattingEnabled = true;
+            cbx_hd.Location = new Point(266, 302);
+            cbx_hd.Name = "cbx_hd";
+            cbx_hd.Size = new Size(182, 33);
+            cbx_hd.TabIndex = 61;
             // 
             // label9
             // 
@@ -211,7 +211,7 @@
             ClientSize = new Size(1031, 633);
             Controls.Add(txt_quantity);
             Controls.Add(cbx_pro);
-            Controls.Add(cbx_hdct);
+            Controls.Add(cbx_hd);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -237,7 +237,7 @@
         #endregion
 
         private ComboBox cbx_pro;
-        private ComboBox cbx_hdct;
+        private ComboBox cbx_hd;
         private Label label9;
         private Label label8;
         private Label label7;

@@ -9,7 +9,6 @@ namespace _1_DAL.Models
     public class Customer
     {
         public Guid CustomerId { get; set; }
-        public Guid voucher_Id { get; set; }    
         public string Name { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
@@ -17,6 +16,5 @@ namespace _1_DAL.Models
         public string Email { get; set; }
         public int PurchaseHistory { get; set; }
         public string Feedback { get; set; }
-        public virtual Voucher Voucher { get; set; }
     }
 }

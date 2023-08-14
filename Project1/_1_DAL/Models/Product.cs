@@ -30,7 +30,6 @@ namespace _1_DAL.Models
         public  virtual Size Size { get; set; }
         public  virtual Color Color { get; set; }
         public  virtual Supplier Supplier { get; set; }
-        public ICollection<BillDetail> bills { get; set; }
 
     }
 }

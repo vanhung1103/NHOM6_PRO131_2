@@ -30,7 +30,7 @@ namespace _3_PL.Views
             dtg_sup.ColumnCount = 2;
             dtg_sup.Columns[0].Name = "Id";
             dtg_sup.Columns[1].Name = "Name";
-            foreach (var x in supform.Get())
+            foreach (var x in supform.GetSuppliers())
             {
                 dtg_sup.Rows.Add(x.Id, x.Name);
             }
@@ -44,18 +44,18 @@ namespace _3_PL.Views
             };
             if (them.Name == nhacungcaps.Name)
             {
-                MessageBox.Show("Da ton tai");
+                MessageBox.Show("Đã tồn tại nhà cung cấp");
             }
             else
             {
                 if (supform.Add(them) != null)
                 {
                     LoadData();
-                    MessageBox.Show("Them thanh cong");
+                    MessageBox.Show("Thêm thành công");
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
                 }
             }
         }
@@ -72,11 +72,11 @@ namespace _3_PL.Views
                 nhacungcaps.Name = txt_name.Text;
                 supform.Update(nhacungcaps);
                 LoadData();
-                MessageBox.Show("Sua thanh cong", "Sua", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
             }
         }
 
@@ -86,18 +86,18 @@ namespace _3_PL.Views
             {
                 supform.Remove(nhacungcaps.Id);
                 LoadData();
-                MessageBox.Show("Xoa thanh cong", "Xoa", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa thành công", "Xóa", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
             }
         }
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             string searchText = txt_search.Text.Trim();
-            var filteredSuppliers = supform.Get().Where(x => x.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
+            var filteredSuppliers = supform.GetSuppliers().Where(x => x.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
             dtg_sup.Rows.Clear();
             foreach (var x in filteredSuppliers)
             {

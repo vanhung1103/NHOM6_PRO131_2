@@ -29,7 +29,7 @@ namespace _3_PL.Views
             dtg_size.ColumnCount = 2;
             dtg_size.Columns[0].Name = "Id";
             dtg_size.Columns[1].Name = "Name";
-            foreach (var x in sizeform.Get())
+            foreach (var x in sizeform.GetSizes())
             {
                 dtg_size.Rows.Add(x.Id, x.Name);
             }
@@ -43,18 +43,18 @@ namespace _3_PL.Views
             };
             if (them.Name == kichcos.Name)
             {
-                MessageBox.Show("Da ton tai");
+                MessageBox.Show("Đã tồn tại kích cỡ sản phẩm");
             }
             else
             {
                 if (sizeform.Add(them) != null)
                 {
                     LoadData();
-                    MessageBox.Show("Them thanh cong");
+                    MessageBox.Show("Thêm thành công");
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
                 }
             }
         }
@@ -71,11 +71,11 @@ namespace _3_PL.Views
                 kichcos.Name = txt_name.Text;
                 sizeform.Update(kichcos);
                 LoadData();
-                MessageBox.Show("Sua thanh cong", "Sua", MessageBoxButtons.OK);
+                MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
             }
         }
 
@@ -85,11 +85,11 @@ namespace _3_PL.Views
             {
                 sizeform.Remove(kichcos.Id);
                 LoadData();
-                MessageBox.Show("Xoa thanh cong", "Xoa", MessageBoxButtons.OK);
+                MessageBox.Show("Xóa thành công", "Xóa", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Error", "Loi", MessageBoxButtons.OK);
+                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
             }
         }
         Guid id;
@@ -106,7 +106,7 @@ namespace _3_PL.Views
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             string searchText = txt_search.Text.Trim();
-            var filteredSuppliers = sizeform.Get().Where(x => x.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
+            var filteredSuppliers = sizeform.GetSizes().Where(x => x.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
             dtg_size.Rows.Clear();
             foreach (var x in filteredSuppliers)
             {

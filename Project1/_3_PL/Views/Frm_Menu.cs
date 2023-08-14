@@ -40,6 +40,7 @@ namespace _3_PL.Views
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new Frm_Customer());
 
         }
 
@@ -65,7 +66,7 @@ namespace _3_PL.Views
 
         private void iconButton8_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Frm_BillDetail());
+            OpenChildForm(new Frm_Voucher());
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _1_DAL.Migrations
 {
-    public partial class db1 : Migration
+    public partial class db1222 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,6 +31,24 @@ namespace _1_DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Color", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Customers",
+                columns: table => new
+                {
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    PurchaseHistory = table.Column<int>(type: "int", nullable: false),
+                    Feedback = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
                 });
 
             migrationBuilder.CreateTable(
@@ -115,12 +133,12 @@ namespace _1_DAL.Migrations
                     Size_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Color_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Supplier_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MaSp = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Masp = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(38,17)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(400)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<string>(type: "nvarchar(100)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -152,47 +170,30 @@ namespace _1_DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Customers",
-                columns: table => new
-                {
-                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    voucher_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    PurchaseHistory = table.Column<int>(type: "int", nullable: false),
-                    Feedback = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
-                    table.ForeignKey(
-                        name: "FK_Customers_Voucher_voucher_Id",
-                        column: x => x.voucher_Id,
-                        principalTable: "Voucher",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Bill",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     User_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Customer_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Voucher_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     MaHD = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     productname = table.Column<string>(name: "product name", type: "nvarchar(100)", nullable: false),
                     Discount = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Create_Date = table.Column<DateTime>(type: "datetime", nullable: false),
                     Total = table.Column<double>(type: "float", nullable: false),
-                    Des = table.Column<string>(type: "nvarchar(100)", nullable: false)
+                    Des = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bill", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bill_Customers_Customer_Id",
+                        column: x => x.Customer_Id,
+                        principalTable: "Customers",
+                        principalColumn: "CustomerId",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bill_User_User_Id",
                         column: x => x.User_Id,
@@ -217,8 +218,7 @@ namespace _1_DAL.Migrations
                     Mahdct = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Quantity = table.Column<decimal>(type: "decimal", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal", nullable: false),
-                    ProductId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Price = table.Column<decimal>(type: "decimal", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -235,12 +235,12 @@ namespace _1_DAL.Migrations
                         principalTable: "Product",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BillDetail_Product_ProductId1",
-                        column: x => x.ProductId1,
-                        principalTable: "Product",
-                        principalColumn: "Id");
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bill_Customer_Id",
+                table: "Bill",
+                column: "Customer_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bill_User_Id",
@@ -261,16 +261,6 @@ namespace _1_DAL.Migrations
                 name: "IX_BillDetail_Pro_Id",
                 table: "BillDetail",
                 column: "Pro_Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BillDetail_ProductId1",
-                table: "BillDetail",
-                column: "ProductId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Customers_voucher_Id",
-                table: "Customers",
-                column: "voucher_Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_Cate_Id",
@@ -304,13 +294,13 @@ namespace _1_DAL.Migrations
                 name: "BillDetail");
 
             migrationBuilder.DropTable(
-                name: "Customers");
-
-            migrationBuilder.DropTable(
                 name: "Bill");
 
             migrationBuilder.DropTable(
                 name: "Product");
+
+            migrationBuilder.DropTable(
+                name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "User");

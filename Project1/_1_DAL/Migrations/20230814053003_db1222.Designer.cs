@@ -12,8 +12,8 @@ using _1_DAL.Data;
 namespace _1_DAL.Migrations
 {
     [DbContext(typeof(ShopClothesContext))]
-    [Migration("20230810054255_db1")]
-    partial class db1
+    [Migration("20230814053003_db1222")]
+    partial class db1222
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,9 @@ namespace _1_DAL.Migrations
                     b.Property<DateTime>("Create_Date")
                         .HasColumnType("datetime")
                         .HasColumnName("Create_Date");
+
+                    b.Property<Guid>("Customer_Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -54,6 +57,10 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("product name");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit")
+                        .HasColumnName("Status");
+
                     b.Property<double>("Total")
                         .HasColumnType("float")
                         .HasColumnName("Total");
@@ -65,6 +72,8 @@ namespace _1_DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Customer_Id");
 
                     b.HasIndex("User_Id");
 
@@ -99,9 +108,6 @@ namespace _1_DAL.Migrations
                     b.Property<Guid>("Pro_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("ProductId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<decimal>("Quantity")
                         .HasColumnType("decimal")
                         .HasColumnName("Quantity");
@@ -111,8 +117,6 @@ namespace _1_DAL.Migrations
                     b.HasIndex("Bill_Id");
 
                     b.HasIndex("Pro_Id");
-
-                    b.HasIndex("ProductId1");
 
                     b.ToTable("BillDetail", (string)null);
                 });
@@ -189,13 +193,7 @@ namespace _1_DAL.Migrations
                     b.Property<int>("PurchaseHistory")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("voucher_Id")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("voucher_Id");
-
                     b.HasKey("CustomerId");
-
-                    b.HasIndex("voucher_Id");
 
                     b.ToTable("Customers", (string)null);
                 });
@@ -219,7 +217,8 @@ namespace _1_DAL.Migrations
 
                     b.Property<string>("MaSp")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("Masp");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -237,8 +236,9 @@ namespace _1_DAL.Migrations
                     b.Property<Guid>("Size_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int")
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
                         .HasColumnName("Status");
 
                     b.Property<Guid>("Supplier_Id")
@@ -370,6 +370,12 @@ namespace _1_DAL.Migrations
 
             modelBuilder.Entity("_1_DAL.Models.Bill", b =>
                 {
+                    b.HasOne("_1_DAL.Models.Customer", "customer")
+                        .WithMany()
+                        .HasForeignKey("Customer_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("_1_DAL.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("User_Id")
@@ -385,6 +391,8 @@ namespace _1_DAL.Migrations
                     b.Navigation("User");
 
                     b.Navigation("Voucher");
+
+                    b.Navigation("customer");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.BillDetail", b =>
@@ -401,24 +409,9 @@ namespace _1_DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_1_DAL.Models.Product", null)
-                        .WithMany("bills")
-                        .HasForeignKey("ProductId1");
-
                     b.Navigation("Bill");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("_1_DAL.Models.Customer", b =>
-                {
-                    b.HasOne("_1_DAL.Models.Voucher", "Voucher")
-                        .WithMany()
-                        .HasForeignKey("voucher_Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Voucher");
                 });
 
             modelBuilder.Entity("_1_DAL.Models.Product", b =>
@@ -465,11 +458,6 @@ namespace _1_DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("_1_DAL.Models.Product", b =>
-                {
-                    b.Navigation("bills");
                 });
 #pragma warning restore 612, 618
         }

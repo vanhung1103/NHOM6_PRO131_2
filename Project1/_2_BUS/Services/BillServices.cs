@@ -33,6 +33,9 @@ namespace _2_BUS.Services
                 MaHD = obj.MaHD,
                 Total = obj.Total,
                 Description = obj.Description,
+                Status = obj.Status,
+                Customer_Id = obj.Customer_Id
+
 
             };
             if (_IbillResponsitory.Add(bill)) return "Thêm  thành công!";
@@ -56,6 +59,10 @@ namespace _2_BUS.Services
                     MaHD = a.MaHD,
                     Total = a.Total,
                     Description = a.Description,
+                Customer_Id = a.Customer_Id,
+                    Status = a.Status
+
+
                 }
                 ).ToList();
             return lst;
@@ -82,6 +89,9 @@ namespace _2_BUS.Services
                 MaHD = obj.MaHD,
                 Total = obj.Total,
                 Description = obj.Description,
+                Status = obj.Status,
+                Customer_Id = obj.Customer_Id
+                
 
             };
             if (_IbillResponsitory.Update(bill)) return "Sửa thành công!";
