@@ -28,272 +28,270 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_customer = new System.Windows.Forms.DataGridView();
-            this.lb_Gioitinh = new System.Windows.Forms.Label();
-            this.lb_name = new System.Windows.Forms.Label();
-            this.lb_diachi = new System.Windows.Forms.Label();
-            this.lb_sdt = new System.Windows.Forms.Label();
-            this.lb_email = new System.Windows.Forms.Label();
-            this.lb_LsMua = new System.Windows.Forms.Label();
-            this.lb_phanhoi = new System.Windows.Forms.Label();
-            this.txt_diachi = new System.Windows.Forms.TextBox();
-            this.txt_ten = new System.Windows.Forms.TextBox();
-            this.txt_phanhoi = new System.Windows.Forms.TextBox();
-            this.txt_lsmua = new System.Windows.Forms.TextBox();
-            this.txt_email = new System.Windows.Forms.TextBox();
-            this.txt_sdt = new System.Windows.Forms.TextBox();
-            this.btn_update = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.txt_search = new System.Windows.Forms.TextBox();
-            this.lb_search = new System.Windows.Forms.Label();
-            this.cb_gioitinh = new System.Windows.Forms.ComboBox();
-            this.cb_voucher = new System.Windows.Forms.ComboBox();
-            this.lb_voucher = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customer)).BeginInit();
-            this.SuspendLayout();
+            dgv_customer = new DataGridView();
+            lb_Gioitinh = new Label();
+            lb_name = new Label();
+            lb_diachi = new Label();
+            lb_sdt = new Label();
+            lb_email = new Label();
+            lb_LsMua = new Label();
+            lb_phanhoi = new Label();
+            txt_diachi = new TextBox();
+            txt_ten = new TextBox();
+            txt_phanhoi = new TextBox();
+            txt_lsmua = new TextBox();
+            txt_email = new TextBox();
+            txt_sdt = new TextBox();
+            btn_update = new Button();
+            btn_delete = new Button();
+            btn_add = new Button();
+            txt_search = new TextBox();
+            lb_search = new Label();
+            cb_gioitinh = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dgv_customer).BeginInit();
+            SuspendLayout();
             // 
             // dgv_customer
             // 
-            this.dgv_customer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_customer.Location = new System.Drawing.Point(12, 279);
-            this.dgv_customer.Name = "dgv_customer";
-            this.dgv_customer.RowHeadersWidth = 51;
-            this.dgv_customer.RowTemplate.Height = 29;
-            this.dgv_customer.Size = new System.Drawing.Size(866, 277);
-            this.dgv_customer.TabIndex = 0;
-            this.dgv_customer.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_customer_CellClick);
+            dgv_customer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_customer.Location = new Point(15, 349);
+            dgv_customer.Margin = new Padding(4, 4, 4, 4);
+            dgv_customer.Name = "dgv_customer";
+            dgv_customer.RowHeadersWidth = 51;
+            dgv_customer.RowTemplate.Height = 29;
+            dgv_customer.Size = new Size(1082, 346);
+            dgv_customer.TabIndex = 0;
+            dgv_customer.CellClick += dgv_customer_CellClick;
             // 
             // lb_Gioitinh
             // 
-            this.lb_Gioitinh.AutoSize = true;
-            this.lb_Gioitinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_Gioitinh.Location = new System.Drawing.Point(16, 78);
-            this.lb_Gioitinh.Name = "lb_Gioitinh";
-            this.lb_Gioitinh.Size = new System.Drawing.Size(66, 23);
-            this.lb_Gioitinh.TabIndex = 2;
-            this.lb_Gioitinh.Text = "Gender";
+            lb_Gioitinh.AutoSize = true;
+            lb_Gioitinh.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_Gioitinh.Location = new Point(20, 98);
+            lb_Gioitinh.Margin = new Padding(4, 0, 4, 0);
+            lb_Gioitinh.Name = "lb_Gioitinh";
+            lb_Gioitinh.Size = new Size(80, 30);
+            lb_Gioitinh.TabIndex = 2;
+            lb_Gioitinh.Text = "Gender";
             // 
             // lb_name
             // 
-            this.lb_name.AutoSize = true;
-            this.lb_name.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_name.Location = new System.Drawing.Point(12, 21);
-            this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(56, 23);
-            this.lb_name.TabIndex = 3;
-            this.lb_name.Text = "Name";
+            lb_name.AutoSize = true;
+            lb_name.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_name.Location = new Point(15, 26);
+            lb_name.Margin = new Padding(4, 0, 4, 0);
+            lb_name.Name = "lb_name";
+            lb_name.Size = new Size(69, 30);
+            lb_name.TabIndex = 3;
+            lb_name.Text = "Name";
             // 
             // lb_diachi
             // 
-            this.lb_diachi.AutoSize = true;
-            this.lb_diachi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_diachi.Location = new System.Drawing.Point(23, 138);
-            this.lb_diachi.Name = "lb_diachi";
-            this.lb_diachi.Size = new System.Drawing.Size(70, 23);
-            this.lb_diachi.TabIndex = 4;
-            this.lb_diachi.Text = "Address";
+            lb_diachi.AutoSize = true;
+            lb_diachi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_diachi.Location = new Point(29, 172);
+            lb_diachi.Margin = new Padding(4, 0, 4, 0);
+            lb_diachi.Name = "lb_diachi";
+            lb_diachi.Size = new Size(87, 30);
+            lb_diachi.TabIndex = 4;
+            lb_diachi.Text = "Address";
             // 
             // lb_sdt
             // 
-            this.lb_sdt.AutoSize = true;
-            this.lb_sdt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_sdt.Location = new System.Drawing.Point(23, 194);
-            this.lb_sdt.Name = "lb_sdt";
-            this.lb_sdt.Size = new System.Drawing.Size(59, 23);
-            this.lb_sdt.TabIndex = 5;
-            this.lb_sdt.Text = "Phone";
+            lb_sdt.AutoSize = true;
+            lb_sdt.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_sdt.Location = new Point(29, 242);
+            lb_sdt.Margin = new Padding(4, 0, 4, 0);
+            lb_sdt.Name = "lb_sdt";
+            lb_sdt.Size = new Size(72, 30);
+            lb_sdt.TabIndex = 5;
+            lb_sdt.Text = "Phone";
             // 
             // lb_email
             // 
-            this.lb_email.AutoSize = true;
-            this.lb_email.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_email.Location = new System.Drawing.Point(286, 21);
-            this.lb_email.Name = "lb_email";
-            this.lb_email.Size = new System.Drawing.Size(51, 23);
-            this.lb_email.TabIndex = 6;
-            this.lb_email.Text = "Email";
+            lb_email.AutoSize = true;
+            lb_email.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_email.Location = new Point(358, 26);
+            lb_email.Margin = new Padding(4, 0, 4, 0);
+            lb_email.Name = "lb_email";
+            lb_email.Size = new Size(63, 30);
+            lb_email.TabIndex = 6;
+            lb_email.Text = "Email";
             // 
             // lb_LsMua
             // 
-            this.lb_LsMua.AutoSize = true;
-            this.lb_LsMua.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_LsMua.Location = new System.Drawing.Point(276, 78);
-            this.lb_LsMua.Name = "lb_LsMua";
-            this.lb_LsMua.Size = new System.Drawing.Size(132, 23);
-            this.lb_LsMua.TabIndex = 7;
-            this.lb_LsMua.Text = "PurchaseHistory";
+            lb_LsMua.AutoSize = true;
+            lb_LsMua.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_LsMua.Location = new Point(345, 98);
+            lb_LsMua.Margin = new Padding(4, 0, 4, 0);
+            lb_LsMua.Name = "lb_LsMua";
+            lb_LsMua.Size = new Size(162, 30);
+            lb_LsMua.TabIndex = 7;
+            lb_LsMua.Text = "PurchaseHistory";
             // 
             // lb_phanhoi
             // 
-            this.lb_phanhoi.AutoSize = true;
-            this.lb_phanhoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_phanhoi.Location = new System.Drawing.Point(286, 138);
-            this.lb_phanhoi.Name = "lb_phanhoi";
-            this.lb_phanhoi.Size = new System.Drawing.Size(81, 23);
-            this.lb_phanhoi.TabIndex = 8;
-            this.lb_phanhoi.Text = "Feedback";
+            lb_phanhoi.AutoSize = true;
+            lb_phanhoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_phanhoi.Location = new Point(358, 172);
+            lb_phanhoi.Margin = new Padding(4, 0, 4, 0);
+            lb_phanhoi.Name = "lb_phanhoi";
+            lb_phanhoi.Size = new Size(100, 30);
+            lb_phanhoi.TabIndex = 8;
+            lb_phanhoi.Text = "Feedback";
             // 
             // txt_diachi
             // 
-            this.txt_diachi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_diachi.Location = new System.Drawing.Point(51, 161);
-            this.txt_diachi.Name = "txt_diachi";
-            this.txt_diachi.Size = new System.Drawing.Size(203, 30);
-            this.txt_diachi.TabIndex = 9;
+            txt_diachi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_diachi.Location = new Point(64, 201);
+            txt_diachi.Margin = new Padding(4, 4, 4, 4);
+            txt_diachi.Name = "txt_diachi";
+            txt_diachi.Size = new Size(253, 35);
+            txt_diachi.TabIndex = 9;
             // 
             // txt_ten
             // 
-            this.txt_ten.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_ten.Location = new System.Drawing.Point(40, 45);
-            this.txt_ten.Name = "txt_ten";
-            this.txt_ten.Size = new System.Drawing.Size(203, 30);
-            this.txt_ten.TabIndex = 11;
+            txt_ten.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_ten.Location = new Point(50, 56);
+            txt_ten.Margin = new Padding(4, 4, 4, 4);
+            txt_ten.Name = "txt_ten";
+            txt_ten.Size = new Size(253, 35);
+            txt_ten.TabIndex = 11;
             // 
             // txt_phanhoi
             // 
-            this.txt_phanhoi.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_phanhoi.Location = new System.Drawing.Point(305, 164);
-            this.txt_phanhoi.Name = "txt_phanhoi";
-            this.txt_phanhoi.Size = new System.Drawing.Size(203, 30);
-            this.txt_phanhoi.TabIndex = 13;
+            txt_phanhoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_phanhoi.Location = new Point(381, 205);
+            txt_phanhoi.Margin = new Padding(4, 4, 4, 4);
+            txt_phanhoi.Name = "txt_phanhoi";
+            txt_phanhoi.Size = new Size(253, 35);
+            txt_phanhoi.TabIndex = 13;
             // 
             // txt_lsmua
             // 
-            this.txt_lsmua.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_lsmua.Location = new System.Drawing.Point(305, 102);
-            this.txt_lsmua.Name = "txt_lsmua";
-            this.txt_lsmua.Size = new System.Drawing.Size(203, 30);
-            this.txt_lsmua.TabIndex = 14;
+            txt_lsmua.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_lsmua.Location = new Point(381, 128);
+            txt_lsmua.Margin = new Padding(4, 4, 4, 4);
+            txt_lsmua.Name = "txt_lsmua";
+            txt_lsmua.Size = new Size(253, 35);
+            txt_lsmua.TabIndex = 14;
             // 
             // txt_email
             // 
-            this.txt_email.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(305, 45);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(203, 30);
-            this.txt_email.TabIndex = 15;
+            txt_email.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_email.Location = new Point(381, 56);
+            txt_email.Margin = new Padding(4, 4, 4, 4);
+            txt_email.Name = "txt_email";
+            txt_email.Size = new Size(253, 35);
+            txt_email.TabIndex = 15;
             // 
             // txt_sdt
             // 
-            this.txt_sdt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_sdt.Location = new System.Drawing.Point(52, 221);
-            this.txt_sdt.Name = "txt_sdt";
-            this.txt_sdt.Size = new System.Drawing.Size(203, 30);
-            this.txt_sdt.TabIndex = 16;
+            txt_sdt.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_sdt.Location = new Point(65, 276);
+            txt_sdt.Margin = new Padding(4, 4, 4, 4);
+            txt_sdt.Name = "txt_sdt";
+            txt_sdt.Size = new Size(253, 35);
+            txt_sdt.TabIndex = 16;
             // 
             // btn_update
             // 
-            this.btn_update.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_update.Location = new System.Drawing.Point(737, 147);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(104, 44);
-            this.btn_update.TabIndex = 17;
-            this.btn_update.Text = "Update";
-            this.btn_update.UseVisualStyleBackColor = true;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            btn_update.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_update.Location = new Point(921, 184);
+            btn_update.Margin = new Padding(4, 4, 4, 4);
+            btn_update.Name = "btn_update";
+            btn_update.Size = new Size(130, 55);
+            btn_update.TabIndex = 17;
+            btn_update.Text = "Update";
+            btn_update.UseVisualStyleBackColor = true;
+            btn_update.Click += btn_update_Click;
             // 
             // btn_delete
             // 
-            this.btn_delete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_delete.Location = new System.Drawing.Point(665, 212);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(104, 44);
-            this.btn_delete.TabIndex = 18;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            btn_delete.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_delete.Location = new Point(831, 265);
+            btn_delete.Margin = new Padding(4, 4, 4, 4);
+            btn_delete.Name = "btn_delete";
+            btn_delete.Size = new Size(130, 55);
+            btn_delete.TabIndex = 18;
+            btn_delete.Text = "Delete";
+            btn_delete.UseVisualStyleBackColor = true;
+            btn_delete.Click += btn_delete_Click;
             // 
             // btn_add
             // 
-            this.btn_add.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_add.Location = new System.Drawing.Point(598, 147);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(104, 44);
-            this.btn_add.TabIndex = 19;
-            this.btn_add.Text = "Add";
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            btn_add.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_add.Location = new Point(748, 184);
+            btn_add.Margin = new Padding(4, 4, 4, 4);
+            btn_add.Name = "btn_add";
+            btn_add.Size = new Size(130, 55);
+            btn_add.TabIndex = 19;
+            btn_add.Text = "Add";
+            btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
             // 
             // txt_search
             // 
-            this.txt_search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_search.Location = new System.Drawing.Point(625, 56);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(203, 30);
-            this.txt_search.TabIndex = 20;
+            txt_search.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_search.Location = new Point(781, 70);
+            txt_search.Margin = new Padding(4, 4, 4, 4);
+            txt_search.Name = "txt_search";
+            txt_search.Size = new Size(253, 35);
+            txt_search.TabIndex = 20;
             // 
             // lb_search
             // 
-            this.lb_search.AutoSize = true;
-            this.lb_search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_search.Location = new System.Drawing.Point(598, 30);
-            this.lb_search.Name = "lb_search";
-            this.lb_search.Size = new System.Drawing.Size(61, 23);
-            this.lb_search.TabIndex = 21;
-            this.lb_search.Text = "Search";
+            lb_search.AutoSize = true;
+            lb_search.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_search.Location = new Point(748, 38);
+            lb_search.Margin = new Padding(4, 0, 4, 0);
+            lb_search.Name = "lb_search";
+            lb_search.Size = new Size(75, 30);
+            lb_search.TabIndex = 21;
+            lb_search.Text = "Search";
             // 
             // cb_gioitinh
             // 
-            this.cb_gioitinh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cb_gioitinh.FormattingEnabled = true;
-            this.cb_gioitinh.Location = new System.Drawing.Point(44, 102);
-            this.cb_gioitinh.Name = "cb_gioitinh";
-            this.cb_gioitinh.Size = new System.Drawing.Size(203, 31);
-            this.cb_gioitinh.TabIndex = 22;
-            // 
-            // cb_voucher
-            // 
-            this.cb_voucher.FormattingEnabled = true;
-            this.cb_voucher.Location = new System.Drawing.Point(305, 228);
-            this.cb_voucher.Name = "cb_voucher";
-            this.cb_voucher.Size = new System.Drawing.Size(203, 28);
-            this.cb_voucher.TabIndex = 23;
-            // 
-            // lb_voucher
-            // 
-            this.lb_voucher.AutoSize = true;
-            this.lb_voucher.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_voucher.Location = new System.Drawing.Point(286, 194);
-            this.lb_voucher.Name = "lb_voucher";
-            this.lb_voucher.Size = new System.Drawing.Size(73, 23);
-            this.lb_voucher.TabIndex = 24;
-            this.lb_voucher.Text = "Voucher";
+            cb_gioitinh.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            cb_gioitinh.FormattingEnabled = true;
+            cb_gioitinh.Location = new Point(55, 128);
+            cb_gioitinh.Margin = new Padding(4, 4, 4, 4);
+            cb_gioitinh.Name = "cb_gioitinh";
+            cb_gioitinh.Size = new Size(253, 36);
+            cb_gioitinh.TabIndex = 22;
             // 
             // Frm_Customer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 568);
-            this.Controls.Add(this.lb_voucher);
-            this.Controls.Add(this.cb_voucher);
-            this.Controls.Add(this.cb_gioitinh);
-            this.Controls.Add(this.lb_search);
-            this.Controls.Add(this.txt_search);
-            this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_update);
-            this.Controls.Add(this.txt_sdt);
-            this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.txt_lsmua);
-            this.Controls.Add(this.txt_phanhoi);
-            this.Controls.Add(this.txt_ten);
-            this.Controls.Add(this.txt_diachi);
-            this.Controls.Add(this.lb_phanhoi);
-            this.Controls.Add(this.lb_LsMua);
-            this.Controls.Add(this.lb_email);
-            this.Controls.Add(this.lb_sdt);
-            this.Controls.Add(this.lb_diachi);
-            this.Controls.Add(this.lb_name);
-            this.Controls.Add(this.lb_Gioitinh);
-            this.Controls.Add(this.dgv_customer);
-            this.Name = "Frm_Customer";
-            this.Text = "Frm_Customer";
-            this.Load += new System.EventHandler(this.Frm_Customer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customer)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1112, 710);
+            Controls.Add(cb_gioitinh);
+            Controls.Add(lb_search);
+            Controls.Add(txt_search);
+            Controls.Add(btn_add);
+            Controls.Add(btn_delete);
+            Controls.Add(btn_update);
+            Controls.Add(txt_sdt);
+            Controls.Add(txt_email);
+            Controls.Add(txt_lsmua);
+            Controls.Add(txt_phanhoi);
+            Controls.Add(txt_ten);
+            Controls.Add(txt_diachi);
+            Controls.Add(lb_phanhoi);
+            Controls.Add(lb_LsMua);
+            Controls.Add(lb_email);
+            Controls.Add(lb_sdt);
+            Controls.Add(lb_diachi);
+            Controls.Add(lb_name);
+            Controls.Add(lb_Gioitinh);
+            Controls.Add(dgv_customer);
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "Frm_Customer";
+            Text = "Frm_Customer";
+            Load += Frm_Customer_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_customer).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -318,7 +316,5 @@
         private TextBox txt_search;
         private Label lb_search;
         private ComboBox cb_gioitinh;
-        private ComboBox cb_voucher;
-        private Label lb_voucher;
     }
 }

@@ -13,6 +13,7 @@ namespace _1_DAL.IResponsitory
         bool Add(BillDetail x);
 
         bool Remove(Guid x);
+        bool Save();
 
         bool Update(BillDetail x);
 

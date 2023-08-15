@@ -13,5 +13,6 @@ namespace _2_BUS.IServices
         string Add(BillDetailView obj);
         string Remove(Guid obj);
         string Update(BillDetailView obj);
+        string save();
     }
 }

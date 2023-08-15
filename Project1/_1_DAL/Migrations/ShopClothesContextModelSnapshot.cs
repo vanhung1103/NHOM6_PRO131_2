@@ -35,11 +35,6 @@ namespace _1_DAL.Migrations
                     b.Property<Guid>("Customer_Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("Des");
-
                     b.Property<string>("Discount")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -50,23 +45,12 @@ namespace _1_DAL.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("MaHD");
 
-                    b.Property<string>("ProductName")
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnName("product name");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit")
                         .HasColumnName("Status");
 
-                    b.Property<double>("Total")
-                        .HasColumnType("float")
-                        .HasColumnName("Total");
-
                     b.Property<Guid>("User_Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("Voucher_Id")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -74,8 +58,6 @@ namespace _1_DAL.Migrations
                     b.HasIndex("Customer_Id");
 
                     b.HasIndex("User_Id");
-
-                    b.HasIndex("Voucher_Id");
 
                     b.ToTable("Bill", (string)null);
                 });
@@ -361,6 +343,10 @@ namespace _1_DAL.Migrations
                         .HasColumnType("decimal(38,17)")
                         .HasColumnName("Voucher_Percent");
 
+                    b.Property<decimal>("minPrice")
+                        .HasColumnType("decimal(38,17)")
+                        .HasColumnName("MinPrice");
+
                     b.HasKey("Id");
 
                     b.ToTable("Voucher", (string)null);
@@ -380,15 +366,7 @@ namespace _1_DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("_1_DAL.Models.Voucher", "Voucher")
-                        .WithMany()
-                        .HasForeignKey("Voucher_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("User");
-
-                    b.Navigation("Voucher");
 
                     b.Navigation("customer");
                 });

@@ -57,6 +57,7 @@ namespace _1_DAL.Responsitory
             vou.End_Date = voucher.End_Date;
             vou.Status = voucher.Status;
             vou.Voucher_Percent = voucher.Voucher_Percent;
+            vou.minPrice = voucher.minPrice;
             _context.Update(vou);
             _context.SaveChanges();
             return true;

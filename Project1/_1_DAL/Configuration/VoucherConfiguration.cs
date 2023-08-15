@@ -18,6 +18,7 @@ namespace _1_DAL.Configuration
             buider.Property(p => p.Name).HasColumnName("Name").HasColumnType("nvarchar(100)").IsRequired();
 
             buider.Property(p => p.Voucher_Percent).HasColumnName("Voucher_Percent").HasColumnType("decimal").IsRequired();
+            buider.Property(p => p.minPrice).HasColumnName("MinPrice").HasColumnType("decimal").IsRequired();
             buider.Property(p => p.Status).HasColumnName("Status").HasColumnType("decimal").IsRequired();
             buider.Property(p => p.Create_Date).HasColumnName("Create_Date").HasColumnType("datetime").IsRequired();
             buider.Property(p => p.End_Date).HasColumnName("End_Date").HasColumnType("datetime").IsRequired();

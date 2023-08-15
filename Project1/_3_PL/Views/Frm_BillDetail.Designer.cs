@@ -127,7 +127,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(178, -8);
+            label2.Location = new Point(168, 9);
             label2.Name = "label2";
             label2.Size = new Size(64, 25);
             label2.TabIndex = 49;
@@ -148,6 +148,7 @@
             txt_search.Name = "txt_search";
             txt_search.Size = new Size(391, 31);
             txt_search.TabIndex = 47;
+            txt_search.TextChanged += txt_search_TextChanged;
             // 
             // txt_mahdct
             // 
@@ -193,7 +194,7 @@
             dtg_show.Name = "dtg_show";
             dtg_show.RowHeadersWidth = 62;
             dtg_show.RowTemplate.Height = 33;
-            dtg_show.Size = new Size(981, 225);
+            dtg_show.Size = new Size(1102, 225);
             dtg_show.TabIndex = 42;
             dtg_show.CellClick += dtg_show_CellClick;
             // 
@@ -208,7 +209,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1031, 633);
+            ClientSize = new Size(1234, 633);
             Controls.Add(txt_quantity);
             Controls.Add(cbx_pro);
             Controls.Add(cbx_hd);

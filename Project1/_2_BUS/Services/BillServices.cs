@@ -15,8 +15,10 @@ namespace _2_BUS.Services
 
     {
         public IBillResponsitory _IbillResponsitory;
+        public ICustomerResponsitory _IcustomerResponsitory;
         public BillServices() {
             _IbillResponsitory = new BillResponsitory();
+            _IcustomerResponsitory = new CustomerResponsitory();
         }
 
         public string Add(BillView obj)
@@ -26,13 +28,9 @@ namespace _2_BUS.Services
             {
                 Id = obj.Id,
                 User_Id = obj.User_Id,
-                Voucher_Id = obj.Voucher_Id,
-                ProductName = obj.ProductName,
                 Create_Date = obj.Create_Date,
                 Discount = obj.Discount,
                 MaHD = obj.MaHD,
-                Total = obj.Total,
-                Description = obj.Description,
                 Status = obj.Status,
                 Customer_Id = obj.Customer_Id
 
@@ -48,20 +46,21 @@ namespace _2_BUS.Services
             lst =
                 (
                 from a in _IbillResponsitory.GetAll()
+                join b in _IcustomerResponsitory.GetAllCustomer() on a.Customer_Id equals b.CustomerId
                 select new BillView()
                 {
                     Id = a.Id,
                     User_Id = a.User_Id,
-                    Voucher_Id = a.Voucher_Id,
-                    ProductName = a.ProductName,
                     Create_Date = a.Create_Date,
                     Discount = a.Discount,
                     MaHD = a.MaHD,
-                    Total = a.Total,
-                    Description = a.Description,
-                Customer_Id = a.Customer_Id,
-                    Status = a.Status
-
+                    Customer_Id = a.Customer_Id,
+                    Status = a.Status,
+                    Name = b.Name,
+                    Phone = b.Phone,
+                    Email = b.Email,
+                    Gender = b.Gender,
+                    Address = b.Address
 
                 }
                 ).ToList();
@@ -82,13 +81,9 @@ namespace _2_BUS.Services
             {
                 Id = obj.Id,
                 User_Id = obj.User_Id,
-                Voucher_Id = obj.Voucher_Id,
-                ProductName = obj.ProductName,
                 Create_Date = obj.Create_Date,
                 Discount = obj.Discount,
                 MaHD = obj.MaHD,
-                Total = obj.Total,
-                Description = obj.Description,
                 Status = obj.Status,
                 Customer_Id = obj.Customer_Id
                 

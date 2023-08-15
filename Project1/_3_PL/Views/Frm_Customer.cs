@@ -42,12 +42,9 @@ namespace _3_PL.Views
 
             // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
             LoadToGridView();
-            LoadVoucher();
-        }
-        public void LoadVoucher()
-        {
 
         }
+
         public void LoadToGridView()
         {
             dgv_customer.Rows.Clear();
@@ -79,9 +76,9 @@ namespace _3_PL.Views
                     );
             }
         }
-    
 
-    
+
+
         private void btn_add_Click(object sender, EventArgs e)
         {
             CustomerView customerView = new CustomerView()
@@ -102,7 +99,7 @@ namespace _3_PL.Views
             }
             LoadToGridView();
         }
-    
+
 
         private void btn_update_Click(object sender, EventArgs e)
         {
@@ -148,7 +145,6 @@ namespace _3_PL.Views
             txt_email.Text = dgv_customer.CurrentRow.Cells[5].Value.ToString();
             txt_lsmua.Text = dgv_customer.CurrentRow.Cells[6].Value.ToString();
             txt_phanhoi.Text = dgv_customer.CurrentRow.Cells[7].Value.ToString();
-            cb_voucher.Text = dgv_customer.CurrentRow.Cells[8].Value.ToString();
         }
 
         private void txt_search_TextChanged(object sender, EventArgs e)

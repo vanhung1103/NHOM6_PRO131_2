@@ -28,206 +28,261 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_Voucher = new System.Windows.Forms.DataGridView();
-            this.lb_name = new System.Windows.Forms.Label();
-            this.lb_VoucherPercent = new System.Windows.Forms.Label();
-            this.lb_status = new System.Windows.Forms.Label();
-            this.lb_ngaybatdau = new System.Windows.Forms.Label();
-            this.lb_ngayketthuc = new System.Windows.Forms.Label();
-            this.txt_name = new System.Windows.Forms.TextBox();
-            this.txt_status = new System.Windows.Forms.TextBox();
-            this.txt_VoucherPercent = new System.Windows.Forms.TextBox();
-            this.dtp_createDate = new System.Windows.Forms.DateTimePicker();
-            this.dtp_endDate = new System.Windows.Forms.DateTimePicker();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.lb_Search = new System.Windows.Forms.Label();
-            this.txt_Search = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Voucher)).BeginInit();
-            this.SuspendLayout();
+            dgv_Voucher = new DataGridView();
+            lb_name = new Label();
+            lb_VoucherPercent = new Label();
+            lb_status = new Label();
+            lb_ngaybatdau = new Label();
+            lb_ngayketthuc = new Label();
+            txt_name = new TextBox();
+            txt_VoucherPercent = new TextBox();
+            dtp_createDate = new DateTimePicker();
+            dtp_endDate = new DateTimePicker();
+            btn_add = new Button();
+            btn_Delete = new Button();
+            btn_Update = new Button();
+            lb_Search = new Label();
+            txt_Search = new TextBox();
+            txt_minprice = new TextBox();
+            label1 = new Label();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            ((System.ComponentModel.ISupportInitialize)dgv_Voucher).BeginInit();
+            SuspendLayout();
             // 
             // dgv_Voucher
             // 
-            this.dgv_Voucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Voucher.Location = new System.Drawing.Point(12, 257);
-            this.dgv_Voucher.Name = "dgv_Voucher";
-            this.dgv_Voucher.RowHeadersWidth = 51;
-            this.dgv_Voucher.RowTemplate.Height = 29;
-            this.dgv_Voucher.Size = new System.Drawing.Size(784, 195);
-            this.dgv_Voucher.TabIndex = 0;
-            this.dgv_Voucher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Voucher_CellClick);
+            dgv_Voucher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Voucher.Location = new Point(15, 321);
+            dgv_Voucher.Margin = new Padding(4);
+            dgv_Voucher.Name = "dgv_Voucher";
+            dgv_Voucher.RowHeadersWidth = 51;
+            dgv_Voucher.RowTemplate.Height = 29;
+            dgv_Voucher.Size = new Size(980, 244);
+            dgv_Voucher.TabIndex = 0;
+            dgv_Voucher.CellClick += dgv_Voucher_CellClick;
             // 
             // lb_name
             // 
-            this.lb_name.AutoSize = true;
-            this.lb_name.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_name.Location = new System.Drawing.Point(35, 39);
-            this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(56, 23);
-            this.lb_name.TabIndex = 1;
-            this.lb_name.Text = "Name";
+            lb_name.AutoSize = true;
+            lb_name.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_name.Location = new Point(44, 49);
+            lb_name.Margin = new Padding(4, 0, 4, 0);
+            lb_name.Name = "lb_name";
+            lb_name.Size = new Size(69, 30);
+            lb_name.TabIndex = 1;
+            lb_name.Text = "Name";
             // 
             // lb_VoucherPercent
             // 
-            this.lb_VoucherPercent.AutoSize = true;
-            this.lb_VoucherPercent.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_VoucherPercent.Location = new System.Drawing.Point(280, 155);
-            this.lb_VoucherPercent.Name = "lb_VoucherPercent";
-            this.lb_VoucherPercent.Size = new System.Drawing.Size(137, 23);
-            this.lb_VoucherPercent.TabIndex = 2;
-            this.lb_VoucherPercent.Text = "Voucher_Percent";
+            lb_VoucherPercent.AutoSize = true;
+            lb_VoucherPercent.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_VoucherPercent.Location = new Point(350, 194);
+            lb_VoucherPercent.Margin = new Padding(4, 0, 4, 0);
+            lb_VoucherPercent.Name = "lb_VoucherPercent";
+            lb_VoucherPercent.Size = new Size(167, 30);
+            lb_VoucherPercent.TabIndex = 2;
+            lb_VoucherPercent.Text = "Voucher_Percent";
             // 
             // lb_status
             // 
-            this.lb_status.AutoSize = true;
-            this.lb_status.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_status.Location = new System.Drawing.Point(280, 91);
-            this.lb_status.Name = "lb_status";
-            this.lb_status.Size = new System.Drawing.Size(56, 23);
-            this.lb_status.TabIndex = 3;
-            this.lb_status.Text = "Status";
+            lb_status.AutoSize = true;
+            lb_status.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_status.Location = new Point(350, 114);
+            lb_status.Margin = new Padding(4, 0, 4, 0);
+            lb_status.Name = "lb_status";
+            lb_status.Size = new Size(69, 30);
+            lb_status.TabIndex = 3;
+            lb_status.Text = "Status";
             // 
             // lb_ngaybatdau
             // 
-            this.lb_ngaybatdau.AutoSize = true;
-            this.lb_ngaybatdau.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_ngaybatdau.Location = new System.Drawing.Point(35, 103);
-            this.lb_ngaybatdau.Name = "lb_ngaybatdau";
-            this.lb_ngaybatdau.Size = new System.Drawing.Size(103, 23);
-            this.lb_ngaybatdau.TabIndex = 4;
-            this.lb_ngaybatdau.Text = "Create_Date";
+            lb_ngaybatdau.AutoSize = true;
+            lb_ngaybatdau.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_ngaybatdau.Location = new Point(44, 129);
+            lb_ngaybatdau.Margin = new Padding(4, 0, 4, 0);
+            lb_ngaybatdau.Name = "lb_ngaybatdau";
+            lb_ngaybatdau.Size = new Size(126, 30);
+            lb_ngaybatdau.TabIndex = 4;
+            lb_ngaybatdau.Text = "Create_Date";
             // 
             // lb_ngayketthuc
             // 
-            this.lb_ngayketthuc.AutoSize = true;
-            this.lb_ngayketthuc.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_ngayketthuc.Location = new System.Drawing.Point(35, 173);
-            this.lb_ngayketthuc.Name = "lb_ngayketthuc";
-            this.lb_ngayketthuc.Size = new System.Drawing.Size(82, 23);
-            this.lb_ngayketthuc.TabIndex = 5;
-            this.lb_ngayketthuc.Text = "End_Date";
+            lb_ngayketthuc.AutoSize = true;
+            lb_ngayketthuc.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_ngayketthuc.Location = new Point(44, 216);
+            lb_ngayketthuc.Margin = new Padding(4, 0, 4, 0);
+            lb_ngayketthuc.Name = "lb_ngayketthuc";
+            lb_ngayketthuc.Size = new Size(101, 30);
+            lb_ngayketthuc.TabIndex = 5;
+            lb_ngayketthuc.Text = "End_Date";
             // 
             // txt_name
             // 
-            this.txt_name.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_name.Location = new System.Drawing.Point(46, 62);
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(186, 30);
-            this.txt_name.TabIndex = 6;
-            // 
-            // txt_status
-            // 
-            this.txt_status.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_status.Location = new System.Drawing.Point(291, 114);
-            this.txt_status.Name = "txt_status";
-            this.txt_status.Size = new System.Drawing.Size(186, 30);
-            this.txt_status.TabIndex = 7;
+            txt_name.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_name.Location = new Point(58, 78);
+            txt_name.Margin = new Padding(4);
+            txt_name.Name = "txt_name";
+            txt_name.Size = new Size(232, 35);
+            txt_name.TabIndex = 6;
             // 
             // txt_VoucherPercent
             // 
-            this.txt_VoucherPercent.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_VoucherPercent.Location = new System.Drawing.Point(291, 178);
-            this.txt_VoucherPercent.Name = "txt_VoucherPercent";
-            this.txt_VoucherPercent.Size = new System.Drawing.Size(186, 30);
-            this.txt_VoucherPercent.TabIndex = 8;
+            txt_VoucherPercent.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_VoucherPercent.Location = new Point(364, 222);
+            txt_VoucherPercent.Margin = new Padding(4);
+            txt_VoucherPercent.Name = "txt_VoucherPercent";
+            txt_VoucherPercent.Size = new Size(232, 35);
+            txt_VoucherPercent.TabIndex = 8;
             // 
             // dtp_createDate
             // 
-            this.dtp_createDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtp_createDate.Location = new System.Drawing.Point(46, 134);
-            this.dtp_createDate.Name = "dtp_createDate";
-            this.dtp_createDate.Size = new System.Drawing.Size(186, 30);
-            this.dtp_createDate.TabIndex = 9;
+            dtp_createDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            dtp_createDate.Location = new Point(58, 168);
+            dtp_createDate.Margin = new Padding(4);
+            dtp_createDate.Name = "dtp_createDate";
+            dtp_createDate.Size = new Size(232, 35);
+            dtp_createDate.TabIndex = 9;
             // 
             // dtp_endDate
             // 
-            this.dtp_endDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtp_endDate.Location = new System.Drawing.Point(46, 196);
-            this.dtp_endDate.Name = "dtp_endDate";
-            this.dtp_endDate.Size = new System.Drawing.Size(186, 30);
-            this.dtp_endDate.TabIndex = 10;
+            dtp_endDate.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            dtp_endDate.Location = new Point(58, 245);
+            dtp_endDate.Margin = new Padding(4);
+            dtp_endDate.Name = "dtp_endDate";
+            dtp_endDate.Size = new Size(232, 35);
+            dtp_endDate.TabIndex = 10;
             // 
             // btn_add
             // 
-            this.btn_add.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_add.Location = new System.Drawing.Point(542, 148);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(98, 48);
-            this.btn_add.TabIndex = 11;
-            this.btn_add.Text = "Add";
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            btn_add.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_add.Location = new Point(678, 185);
+            btn_add.Margin = new Padding(4);
+            btn_add.Name = "btn_add";
+            btn_add.Size = new Size(122, 60);
+            btn_add.TabIndex = 11;
+            btn_add.Text = "Add";
+            btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Delete.Location = new System.Drawing.Point(603, 202);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(98, 48);
-            this.btn_Delete.TabIndex = 12;
-            this.btn_Delete.Text = "Delete";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            btn_Delete.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Delete.Location = new Point(754, 252);
+            btn_Delete.Margin = new Padding(4);
+            btn_Delete.Name = "btn_Delete";
+            btn_Delete.Size = new Size(122, 60);
+            btn_Delete.TabIndex = 12;
+            btn_Delete.Text = "Delete";
+            btn_Delete.UseVisualStyleBackColor = true;
+            btn_Delete.Click += btn_Delete_Click;
             // 
             // btn_Update
             // 
-            this.btn_Update.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_Update.Location = new System.Drawing.Point(672, 148);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(98, 48);
-            this.btn_Update.TabIndex = 13;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            btn_Update.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_Update.Location = new Point(840, 185);
+            btn_Update.Margin = new Padding(4);
+            btn_Update.Name = "btn_Update";
+            btn_Update.Size = new Size(122, 60);
+            btn_Update.TabIndex = 13;
+            btn_Update.Text = "Update";
+            btn_Update.UseVisualStyleBackColor = true;
+            btn_Update.Click += btn_Update_Click;
             // 
             // lb_Search
             // 
-            this.lb_Search.AutoSize = true;
-            this.lb_Search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_Search.Location = new System.Drawing.Point(505, 23);
-            this.lb_Search.Name = "lb_Search";
-            this.lb_Search.Size = new System.Drawing.Size(61, 23);
-            this.lb_Search.TabIndex = 14;
-            this.lb_Search.Text = "Search";
+            lb_Search.AutoSize = true;
+            lb_Search.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lb_Search.Location = new Point(631, 29);
+            lb_Search.Margin = new Padding(4, 0, 4, 0);
+            lb_Search.Name = "lb_Search";
+            lb_Search.Size = new Size(75, 30);
+            lb_Search.TabIndex = 14;
+            lb_Search.Text = "Search";
             // 
             // txt_Search
             // 
-            this.txt_Search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_Search.Location = new System.Drawing.Point(523, 49);
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(228, 30);
-            this.txt_Search.TabIndex = 15;
-            this.txt_Search.TextChanged += new System.EventHandler(this.txt_Search_TextChanged);
+            txt_Search.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_Search.Location = new Point(654, 61);
+            txt_Search.Margin = new Padding(4);
+            txt_Search.Name = "txt_Search";
+            txt_Search.Size = new Size(284, 35);
+            txt_Search.TabIndex = 15;
+            txt_Search.TextChanged += txt_Search_TextChanged;
+            // 
+            // txt_minprice
+            // 
+            txt_minprice.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_minprice.Location = new Point(364, 61);
+            txt_minprice.Margin = new Padding(4);
+            txt_minprice.Name = "txt_minprice";
+            txt_minprice.Size = new Size(232, 35);
+            txt_minprice.TabIndex = 16;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(350, 27);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(177, 30);
+            label1.TabIndex = 17;
+            label1.Text = "giá áp dụng được";
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(350, 162);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(108, 29);
+            radioButton1.TabIndex = 18;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Đã Dùng";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(524, 168);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(127, 29);
+            radioButton2.TabIndex = 19;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Chưa Dùng";
+            radioButton2.UseVisualStyleBackColor = true;
             // 
             // Frm_Voucher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 464);
-            this.Controls.Add(this.txt_Search);
-            this.Controls.Add(this.lb_Search);
-            this.Controls.Add(this.btn_Update);
-            this.Controls.Add(this.btn_Delete);
-            this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.dtp_endDate);
-            this.Controls.Add(this.dtp_createDate);
-            this.Controls.Add(this.txt_VoucherPercent);
-            this.Controls.Add(this.txt_status);
-            this.Controls.Add(this.txt_name);
-            this.Controls.Add(this.lb_ngayketthuc);
-            this.Controls.Add(this.lb_ngaybatdau);
-            this.Controls.Add(this.lb_status);
-            this.Controls.Add(this.lb_VoucherPercent);
-            this.Controls.Add(this.lb_name);
-            this.Controls.Add(this.dgv_Voucher);
-            this.Name = "Frm_Voucher";
-            this.Text = "Frm_Voucher";
-            this.Load += new System.EventHandler(this.Frm_Voucher_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Voucher)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1010, 580);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton1);
+            Controls.Add(label1);
+            Controls.Add(txt_minprice);
+            Controls.Add(txt_Search);
+            Controls.Add(lb_Search);
+            Controls.Add(btn_Update);
+            Controls.Add(btn_Delete);
+            Controls.Add(btn_add);
+            Controls.Add(dtp_endDate);
+            Controls.Add(dtp_createDate);
+            Controls.Add(txt_VoucherPercent);
+            Controls.Add(txt_name);
+            Controls.Add(lb_ngayketthuc);
+            Controls.Add(lb_ngaybatdau);
+            Controls.Add(lb_status);
+            Controls.Add(lb_VoucherPercent);
+            Controls.Add(lb_name);
+            Controls.Add(dgv_Voucher);
+            Margin = new Padding(4);
+            Name = "Frm_Voucher";
+            Text = "Frm_Voucher";
+            Load += Frm_Voucher_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_Voucher).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -239,7 +294,6 @@
         private Label lb_ngaybatdau;
         private Label lb_ngayketthuc;
         private TextBox txt_name;
-        private TextBox txt_status;
         private TextBox txt_VoucherPercent;
         private DateTimePicker dtp_createDate;
         private DateTimePicker dtp_endDate;
@@ -248,5 +302,9 @@
         private Button btn_Update;
         private Label lb_Search;
         private TextBox txt_Search;
+        private TextBox txt_minprice;
+        private Label label1;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
     }
 }

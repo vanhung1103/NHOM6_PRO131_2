@@ -30,6 +30,7 @@ namespace _2_BUS.Services
                 Name= voucher.Name,
                 Create_Date = voucher.Create_Date,
                 End_Date= voucher.End_Date,
+                minPrice = voucher.minPrice,
                 Status= voucher.Status,
                 Voucher_Percent= voucher.Voucher_Percent,
 
@@ -61,6 +62,7 @@ namespace _2_BUS.Services
                     Name= a.Name,
                     Create_Date = a.Create_Date,
                     End_Date = a.End_Date,
+                    minPrice = a.minPrice,
                     Status= a.Status,
                     Voucher_Percent= a.Voucher_Percent,
                 }
@@ -77,6 +79,7 @@ namespace _2_BUS.Services
                 Create_Date = voucher.Create_Date,
                 End_Date= voucher.End_Date,
                 Status = voucher.Status,
+                minPrice = voucher.minPrice,
                 Voucher_Percent= voucher.Voucher_Percent,
             };
             if (_voucherResponsitory.UpdateVoucher(vou)) return "Sửa  thành công!";
