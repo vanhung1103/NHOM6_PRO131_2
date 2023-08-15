@@ -14,5 +14,7 @@ namespace _2_BUS.ViewModel
         public DateTime End_Date { get; set; }
         public int Status { get; set; }
         public float Voucher_Percent { get; set; }
+        public float minPrice { get; set; }
+
     }
 }

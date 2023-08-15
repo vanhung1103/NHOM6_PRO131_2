@@ -29,8 +29,9 @@ namespace _2_BUS.Services
                 Id = obj.Id,
                 Quantity = obj.Quantity,
                 Price = obj.Price,
-                Image = obj.Image
-               
+                Image = obj.Image,
+
+
 
             };
             if (_ibillDetailResponsitory.Add(billd)) return "Thêm  thành công!";
@@ -51,7 +52,7 @@ namespace _2_BUS.Services
                     Id = a.Id,
                     Quantity = a.Quantity,
                     Price = a.Price,
-                    Image = a.Image
+                    Image = a.Image,
 
 
                 }
@@ -77,12 +78,25 @@ namespace _2_BUS.Services
                 Id = obj.Id,
                 Quantity = obj.Quantity,
                 Price = obj.Price,
-                Image = obj.Image
+                Image = obj.Image,
 
 
-            };
+
+        };
             if (_ibillDetailResponsitory.Update(bill)) return "sửa  thành công!";
             return "sửa không thành công!";
+        }
+        public string save()
+        {
+            try
+            {
+                _ibillDetailResponsitory.Save();
+ ;                return "Thanh toán thành công";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
     }
 }
