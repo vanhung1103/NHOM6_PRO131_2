@@ -61,7 +61,6 @@ namespace _2_BUS.Services
                     Email = b.Email,
                     Gender = b.Gender,
                     Address = b.Address
-
                 }
                 ).ToList();
             return lst;

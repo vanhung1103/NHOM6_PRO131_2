@@ -1929,23 +1929,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vanhu\\.nuget\\packages\\": {},
+    "C:\\Users\\ACER\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\git_hung\\Project1\\_2_BUS\\_2_BUS.csproj",
+      "projectUniqueName": "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_2_BUS\\_2_BUS.csproj",
       "projectName": "_2_BUS",
-      "projectPath": "E:\\git_hung\\Project1\\_2_BUS\\_2_BUS.csproj",
-      "packagesPath": "C:\\Users\\vanhu\\.nuget\\packages\\",
-      "outputPath": "E:\\git_hung\\Project1\\_2_BUS\\obj\\",
+      "projectPath": "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_2_BUS\\_2_BUS.csproj",
+      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_2_BUS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\vanhu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1960,8 +1960,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\git_hung\\Project1\\_1_DAL\\_1_DAL.csproj": {
-              "projectPath": "E:\\git_hung\\Project1\\_1_DAL\\_1_DAL.csproj"
+            "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_1_DAL\\_1_DAL.csproj": {
+              "projectPath": "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_1_DAL\\_1_DAL.csproj"
             }
           }
         }
@@ -1991,7 +1991,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

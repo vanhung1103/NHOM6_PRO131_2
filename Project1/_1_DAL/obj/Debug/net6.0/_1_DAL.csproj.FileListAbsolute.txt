@@ -12,3 +12,17 @@ E:\git_hung\Project1\_1_DAL\obj\Debug\net6.0\ref\_1_DAL.dll
 E:\git_hung\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.csproj.AssemblyReference.cache
 E:\git_hung\Project1\_1_DAL\bin\Debug\net6.0\_1_DAL.runtimeconfig.json
 E:\git_hung\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.genruntimeconfig.cache
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\bin\Debug\net6.0\_1_DAL.deps.json
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\bin\Debug\net6.0\_1_DAL.runtimeconfig.json
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\bin\Debug\net6.0\_1_DAL.dll
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\bin\Debug\net6.0\_1_DAL.pdb
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.csproj.AssemblyReference.cache
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.AssemblyInfoInputs.cache
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.AssemblyInfo.cs
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.csproj.CoreCompileInputs.cache
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.dll
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\refint\_1_DAL.dll
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.pdb
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\_1_DAL.genruntimeconfig.cache
+C:\Users\ACER\Desktop\PROJECT\Project1\_1_DAL\obj\Debug\net6.0\ref\_1_DAL.dll
