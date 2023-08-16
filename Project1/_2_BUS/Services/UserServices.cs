@@ -6,12 +6,13 @@ using _2_BUS.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace _2_BUS.Services
 {
-    public class UserServices:IUserServices
+    public class UserServices : IUserServices
     {
         public IUserResponsitory _userResponsitory;
 
@@ -20,7 +21,11 @@ namespace _2_BUS.Services
             _userResponsitory = new UserResponsitory();
 
         }
-
+       
+        public bool CheckEmtyDB()
+        {
+            return _userResponsitory.GetAllUser() == null;
+        }
         public string AddUser(UserView user)
         {
             if (user == null) return "Thêm không thành công!";
@@ -61,7 +66,15 @@ namespace _2_BUS.Services
                 ).ToList();
             return lst;
         }
-
+        public bool CheckAccountExists(string username) // kiem tra xem ten tk da ton tai hay chua
+        {
+            var x = _userResponsitory.GetAllUser().Find(x => x.UserName == username);
+            if (x != null)
+            {
+                return true;
+            }
+            else return false;
+        }
         public User GetUsersId(Guid id)
         {
             return _userResponsitory.GetUserById(id);
@@ -81,6 +94,13 @@ namespace _2_BUS.Services
             };
             if (_userResponsitory.UpdateUser(use)) return "Sửa  thành công!";
             return "Sửa không thành công!";
+        }
+
+        public User CheckLogin(string username, string password)
+        {
+            User ac = _userResponsitory.GetAccount(username, password);
+            return ac;
+
         }
     }
 }

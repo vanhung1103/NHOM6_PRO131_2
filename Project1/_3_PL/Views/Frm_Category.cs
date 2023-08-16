@@ -55,17 +55,24 @@ namespace _3_PL.Views
         }
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (loaisanphams != null)
+            if (txt_name.Text == "")
             {
-                loaisanphams.Id = id;
-                loaisanphams.Name = txt_name.Text;
-                cateform.Update(loaisanphams);
-                LoadData();
-                MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
+                MessageBox.Show("Không để tên trống");
             }
             else
             {
-                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                if (loaisanphams != null)
+                {
+                    loaisanphams.Id = id;
+                    loaisanphams.Name = txt_name.Text;
+                    cateform.Update(loaisanphams);
+                    LoadData();
+                    MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                }
             }
         }
         private void btn_add_Click(object sender, EventArgs e)

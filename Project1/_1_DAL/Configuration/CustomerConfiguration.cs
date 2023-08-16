@@ -24,7 +24,6 @@ namespace _1_DAL.Configuration
             builder.Property(c => c.Address).HasMaxLength(255);
             builder.Property(c => c.Phone).HasMaxLength(20);
             builder.Property(c => c.Email).HasMaxLength(255);
-            builder.Property(c => c.PurchaseHistory);
             builder.Property(c => c.Feedback).HasMaxLength(500);
 
             // Quan hệ một-một với bảng Vouchers

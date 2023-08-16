@@ -102,20 +102,54 @@ namespace _3_PL.Views
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
+            string pattern = @"^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$";
+            bool chuso = Regex.IsMatch(txt_mahd.Text, pattern);
             bool so = Regex.IsMatch(txt_discount.Text, @"^[0-9]");
-            if (txt_mahd.Text == "" && txt_mahd.Text.Length < 5)
+            bool so1 = Regex.IsMatch(txt_discount.Text, @"^{9}");
+            var lst = _ibillServices.Get();
+            string maCanKiemTra = txt_mahd.Text;
+
+            bool isMaTrung = lst.Any(product => product.MaHD == maCanKiemTra);
+
+            if (txt_mahd.Text == "")
             {
                 txt_mahd.BackColor = Color.Yellow;
-                MessageBox.Show("Không để mã hóa đơn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Không để mã hóa đơn trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_mahd.Text.Length > 5)
+            {
+                MessageBox.Show("Không để mã hóa đơn quá 5 kí tự", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
             else if (txt_mahd.Text.Contains(" "))
             {
                 MessageBox.Show("Không được để dấu cách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+            else if (!chuso)
+            {
+                MessageBox.Show("Mã phải có số và chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (isMaTrung)
+            {
+
+                MessageBox.Show("Mã bill đã tồn tại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
             else if (txt_discount.Text == "")
             {
                 MessageBox.Show("Không để trống discount", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_discount.Text).ToString().Length > 9)
+            {
+                MessageBox.Show("Nhâp discount quá cao", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_discount.Text) < 0)
+            {
+                MessageBox.Show("Discount không âm", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (txt_discount.Text.Contains(" "))
@@ -128,6 +162,7 @@ namespace _3_PL.Views
                 MessageBox.Show("Không được nhập chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+
             else if (dtp_createdate.Created == false)
             {
                 MessageBox.Show("Không để trống ngày", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -174,8 +209,15 @@ namespace _3_PL.Views
 
         private void btn_update_Click(object sender, EventArgs e)
         {
+            string pattern = @"^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$";
+            bool chuso = Regex.IsMatch(txt_mahd.Text, pattern);
             bool so = Regex.IsMatch(txt_discount.Text, @"^[0-9]");
-            if (txt_mahd.Text == "" && txt_mahd.Text.Length < 5)
+            var lst = _ibillServices.Get();
+            string maCanKiemTra = txt_mahd.Text;
+
+            bool isMaTrung = lst.Any(product => product.MaHD == maCanKiemTra);
+
+            if (txt_mahd.Text == "" && txt_mahd.Text.Length > 5)
             {
                 txt_mahd.BackColor = Color.Yellow;
                 MessageBox.Show("Không để mã hóa đơn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -185,9 +227,25 @@ namespace _3_PL.Views
                 MessageBox.Show("Không được để dấu cách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+            else if (!chuso)
+            {
+                MessageBox.Show("Mã phải có số và chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
             else if (txt_discount.Text == "")
             {
                 MessageBox.Show("Không để trống discount", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_discount.Text).ToString().Length > 9)
+            {
+                MessageBox.Show("Nhâp discount quá cao", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_discount.Text) < 0)
+            {
+                MessageBox.Show("Discount không âm", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (txt_discount.Text.Contains(" "))
@@ -219,6 +277,8 @@ namespace _3_PL.Views
                 MessageBox.Show("Chọn trạng thái", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+
+
 
 
             else
@@ -328,6 +388,18 @@ namespace _3_PL.Views
 
                 MessageBox.Show("successfully!");
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void billDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_BillDetail  frm = new Frm_BillDetail();
+            frm.ShowDialog();
+            frm.MdiParent = this;
         }
     }
 }

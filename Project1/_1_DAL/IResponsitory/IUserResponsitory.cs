@@ -14,5 +14,6 @@ namespace _1_DAL.IResponsitory
         public bool DeleteUser(Guid id);
         public List<User> GetAllUser();
         public User GetUserById (Guid id);
+       public User GetAccount(string username, string password);
     }
 }

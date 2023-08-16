@@ -37,7 +37,7 @@ namespace _1_DAL.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder.
-              UseSqlServer("Data Source=LAPTOP-NUP1I8BE\\SQLEXPRESS;Initial Catalog=DUANMAIN;Integrated Security=True"));
+              UseSqlServer("Data Source=VANHUNG;Initial Catalog=db4;Integrated Security=True"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

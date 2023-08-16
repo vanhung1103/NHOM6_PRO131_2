@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +21,7 @@ namespace _3_PL.Views
         public Guid _Id;
         public ICustomerServices customerServices;
         List<CustomerView> customerList;
+
         public Frm_Customer()
         {
             InitializeComponent();
@@ -39,30 +41,30 @@ namespace _3_PL.Views
                 // Đặt cột đầu tiên của DataGridView là chỉ đọc (ReadOnly)
                 dgv_customer.Columns[0].ReadOnly = true;
             }
-
+            customerList = customerServices.GetCustomer();   
             // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
-            LoadToGridView();
+            LoadToGridView(customerList);
 
         }
 
-        public void LoadToGridView()
+        public void LoadToGridView(List<CustomerView> customerViews)
         {
             dgv_customer.Rows.Clear();
-            dgv_customer.ColumnCount = 8;
+            dgv_customer.ColumnCount = 7;
             //dgv_customer.Columns[0].Visible = false;
 
             dgv_customer.Columns[0].Name = "CustomerId";
+            dgv_customer.Columns[0].Visible = false;
             dgv_customer.Columns[1].Name = "Tên Khách Hàng";
             dgv_customer.Columns[2].Name = "Giới Tính";
             dgv_customer.Columns[3].Name = "Địa Chỉ";
             dgv_customer.Columns[4].Name = "Số Điện Thoại";
             dgv_customer.Columns[5].Name = "Email";
-            dgv_customer.Columns[6].Name = "Lịch Sử Mua";
-            dgv_customer.Columns[7].Name = "Phản hồi";
+            dgv_customer.Columns[6].Name = "Phản hồi";
             dgv_customer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_customer.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgv_customer.AllowUserToResizeColumns = false;
-            foreach (var item in customerServices.GetCustomer())
+            foreach (var item in customerViews)
             {
                 dgv_customer.Rows.Add(item.CustomerId,
                     item.Name,
@@ -70,7 +72,6 @@ namespace _3_PL.Views
                     item.Address,
                     item.Phone,
                     item.Email,
-                    item.PurchaseHistory,
                     item.Feedback
 
                     );
@@ -81,46 +82,174 @@ namespace _3_PL.Views
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            CustomerView customerView = new CustomerView()
+            bool sdt = Regex.IsMatch(txt_sdt.Text, @"^\d{10}$");
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+            bool email = Regex.IsMatch(txt_email.Text, pattern);
+            if (txt_ten.Text == "")
             {
-                Name = txt_ten.Text,
-                Gender = cb_gioitinh.Text,
-                Address = txt_diachi.Text,
-                Phone = txt_sdt.Text,
-                Email = txt_email.Text,
-                PurchaseHistory = Convert.ToInt32(txt_lsmua.Text),
-                Feedback = txt_phanhoi.Text,
-            };
-            DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dg == DialogResult.Yes)
-            {
-                MessageBox.Show(customerServices.AddCustomer(customerView));
-                LoadToGridView();
+                MessageBox.Show("Không để trống tên khách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
-            LoadToGridView();
+            else if (txt_ten.Text.Length > 60)
+            {
+                MessageBox.Show("Nhập tên khách quá dài", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (cb_gioitinh.Text == "")
+            {
+                MessageBox.Show("Nhập giới tính", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_diachi.Text == "")
+            {
+                MessageBox.Show("Nhập địa chỉ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_diachi.Text.Length > 100)
+            {
+                MessageBox.Show("Địa chỉ quá dài", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_sdt.Text == "")
+            {
+                MessageBox.Show("Nhập số điện thoại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (!sdt)
+            {
+                MessageBox.Show("Nhập sđt 10 số, không chứa kí tự hoặc chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_email.Text == "")
+            {
+                MessageBox.Show("Nhập email", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (!email)
+            {
+                MessageBox.Show("Email p đúng abc@....com", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_phanhoi.Text == "")
+            {
+                MessageBox.Show("Nhập phản hồi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_phanhoi.Text.Length > 100)
+            {
+                MessageBox.Show("phản hồi dài quá ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                CustomerView customerView = new CustomerView()
+                {
+                    Name = txt_ten.Text,
+                    Gender = cb_gioitinh.Text,
+                    Address = txt_diachi.Text,
+                    Phone = txt_sdt.Text,
+                    Email = txt_email.Text,
+                    Feedback = txt_phanhoi.Text,
+                };
+                DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông báo", MessageBoxButtons.YesNo);
+                if (dg == DialogResult.Yes)
+                {
+                    MessageBox.Show(customerServices.AddCustomer(customerView));
+                    customerList = customerServices.GetCustomer();
+                    // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
+                    LoadToGridView(customerList);
+                }
+                customerList = customerServices.GetCustomer();
+                // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
+                LoadToGridView(customerList);
+            }
         }
 
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            CustomerView customerView = new CustomerView()
+            bool sdt = Regex.IsMatch(txt_sdt.Text, @"^\d{10}$");
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+            bool email = Regex.IsMatch(txt_email.Text, pattern);
+            if (txt_ten.Text == "")
             {
-                CustomerId = _Id,
-                Name = txt_ten.Text,
-                Gender = cb_gioitinh.Text,
-                Address = txt_diachi.Text,
-                Phone = txt_sdt.Text,
-                Email = txt_email.Text,
-                PurchaseHistory = Convert.ToInt32(txt_lsmua.Text),
-                Feedback = txt_phanhoi.Text,
-            };
-            DialogResult dg = MessageBox.Show("Bạn có muốn sửa ?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dg == DialogResult.Yes)
-            {
-                MessageBox.Show(customerServices.UpdateCustomer(customerView));
-                LoadToGridView();
+                MessageBox.Show("Không để trống tên khách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
-            LoadToGridView();
+            else if (txt_ten.Text.Length > 60)
+            {
+                MessageBox.Show("Nhập tên khách quá dài", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (cb_gioitinh.Text == "")
+            {
+                MessageBox.Show("Nhập giới tính", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_diachi.Text == "")
+            {
+                MessageBox.Show("Nhập địa chỉ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_diachi.Text.Length > 100)
+            {
+                MessageBox.Show("Địa chỉ quá dài", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_sdt.Text == "")
+            {
+                MessageBox.Show("Nhập số điện thoại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (!sdt)
+            {
+                MessageBox.Show("Nhập sđt 10 số, không chứa kí tự hoặc chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_email.Text == "")
+            {
+                MessageBox.Show("Nhập email", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (!email)
+            {
+                MessageBox.Show("Email p đúng abc@....com", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_phanhoi.Text == "")
+            {
+                MessageBox.Show("Nhập phản hồi", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_phanhoi.Text.Length > 100)
+            {
+                MessageBox.Show("phản hồi dài quá ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                CustomerView customerView = new CustomerView()
+                {
+                    CustomerId = _Id,
+                    Name = txt_ten.Text,
+                    Gender = cb_gioitinh.Text,
+                    Address = txt_diachi.Text,
+                    Phone = txt_sdt.Text,
+                    Email = txt_email.Text,
+                    Feedback = txt_phanhoi.Text,
+                };
+                DialogResult dg = MessageBox.Show("Bạn có muốn sửa ?", "Thông báo", MessageBoxButtons.YesNo);
+                if (dg == DialogResult.Yes)
+                {
+                    MessageBox.Show(customerServices.UpdateCustomer(customerView));
+                    customerList = customerServices.GetCustomer();
+                    // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
+                    LoadToGridView(customerList);
+                }
+                customerList = customerServices.GetCustomer();
+                // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
+                LoadToGridView(customerList);
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -129,9 +258,13 @@ namespace _3_PL.Views
             if (dg == DialogResult.Yes)
             {
                 MessageBox.Show(customerServices.DeleteCustomer(_Id));
-                LoadToGridView();
+                customerList = customerServices.GetCustomer();
+                // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
+                LoadToGridView(customerList);
             }
-            LoadToGridView();
+            customerList = customerServices.GetCustomer();
+            // Gọi hàm LoadData để nạp dữ liệu vào DataGridView
+            LoadToGridView(customerList);
         }
 
         private void dgv_customer_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -143,19 +276,18 @@ namespace _3_PL.Views
             txt_diachi.Text = dgv_customer.CurrentRow.Cells[3].Value.ToString();
             txt_sdt.Text = dgv_customer.CurrentRow.Cells[4].Value.ToString();
             txt_email.Text = dgv_customer.CurrentRow.Cells[5].Value.ToString();
-            txt_lsmua.Text = dgv_customer.CurrentRow.Cells[6].Value.ToString();
-            txt_phanhoi.Text = dgv_customer.CurrentRow.Cells[7].Value.ToString();
+            txt_phanhoi.Text = dgv_customer.CurrentRow.Cells[6].Value.ToString();
         }
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             string searchText = txt_search.Text.Trim();
-            var filteredSuppliers = customerServices.GetCustomer().Where(x => x.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase)).ToList();
-            dgv_customer.Rows.Clear();
-            foreach (var x in filteredSuppliers)
+            var filteredSuppliers = customerServices.GetCustomer().Where(x => x.Name.ToLower().Contains(searchText.ToLower()) && x.Phone.ToLower().Contains(searchText.ToLower())).ToList();
+            if (filteredSuppliers == null)
             {
-                dgv_customer.Rows.Add(x.CustomerId, x.Name, x.Gender, x.Address, x.Phone, x.Email, x.PurchaseHistory, x.Feedback);
+                MessageBox.Show("Không tìm thấy");
             }
+            LoadToGridView(filteredSuppliers);
         }
     }
 }

@@ -78,10 +78,14 @@ namespace _3_PL.Views
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
-            bool chuso = Regex.IsMatch(txt_mahdct.Text, @"[A-Za-z0-9]");
+            string pattern = @"^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$";
+            bool chuso = Regex.IsMatch(txt_mahdct.Text, pattern);
             bool so = Regex.IsMatch(txt_price.Text, @"^[0-9]");
             bool so1 = Regex.IsMatch(txt_quantity.Text, @"^[0-9]");
+            var lst = _IbillDetailServices.Get();
+            string maCanKiemTra = txt_mahdct.Text;
 
+            bool isMaTrung = lst.Any(product => product.MaHDCT == maCanKiemTra);
             if (txt_mahdct.Text == "")
             {
                 txt_mahdct.BackColor = Color.Yellow;
@@ -102,9 +106,20 @@ namespace _3_PL.Views
                 MessageBox.Show("Mã hóa đơn không chứa dấu cách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+            else if (isMaTrung)
+            {
+
+                MessageBox.Show("Mã bill đã tồn tại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
             else if (txt_price.Text == "")
             {
                 MessageBox.Show("Gía Không để trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_price.Text) < 0)
+            {
+                MessageBox.Show("Gía Không để được âm", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (!so)
@@ -120,6 +135,11 @@ namespace _3_PL.Views
             else if (txt_quantity.Text == "")
             {
                 MessageBox.Show("Số lượng không để trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_quantity.Text) < 0)
+            {
+                MessageBox.Show("Gía Không để được âm", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (txt_quantity.Text.Contains(" "))
@@ -179,10 +199,14 @@ namespace _3_PL.Views
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            bool chuso = Regex.IsMatch(txt_mahdct.Text, @"[A-Za-z0-9]");
+            string pattern = @"^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$";
+            bool chuso = Regex.IsMatch(txt_mahdct.Text, pattern);
             bool so = Regex.IsMatch(txt_price.Text, @"^[0-9]");
             bool so1 = Regex.IsMatch(txt_quantity.Text, @"^[0-9]");
+            var lst = _IbillDetailServices.Get();
+            string maCanKiemTra = txt_mahdct.Text;
 
+            bool isMaTrung = lst.Any(product => product.MaHDCT == maCanKiemTra);
             if (txt_mahdct.Text == "")
             {
                 txt_mahdct.BackColor = Color.Yellow;
@@ -203,9 +227,15 @@ namespace _3_PL.Views
                 MessageBox.Show("Mã hóa đơn không chứa dấu cách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+            
             else if (txt_price.Text == "")
             {
                 MessageBox.Show("Gía Không để trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_price.Text) < 0)
+            {
+                MessageBox.Show("Gía Không để được âm", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (!so)
@@ -213,7 +243,7 @@ namespace _3_PL.Views
                 MessageBox.Show("Gía Phải là số", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            else if (Convert.ToInt32(txt_price.Text).ToString().Length > 9)
+            else if (decimal.Parse(txt_price.Text).ToString().Length > 9)
             {
                 MessageBox.Show("Gía quá cao", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -221,6 +251,11 @@ namespace _3_PL.Views
             else if (txt_quantity.Text == "")
             {
                 MessageBox.Show("Số lượng không để trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (decimal.Parse(txt_quantity.Text) < 0)
+            {
+                MessageBox.Show("Gía Không để được âm", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (txt_quantity.Text.Contains(" "))
@@ -233,7 +268,7 @@ namespace _3_PL.Views
                 MessageBox.Show("Số lượng không được chưa dấu cách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            else if (Convert.ToInt32(txt_quantity.Text).ToString().Length > 9)
+            else if (decimal.Parse(txt_quantity.Text).ToString().Length > 9)
             {
                 MessageBox.Show("Số lượng quá lớn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

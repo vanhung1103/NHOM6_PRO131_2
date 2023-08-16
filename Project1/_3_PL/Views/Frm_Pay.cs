@@ -285,7 +285,11 @@ namespace _3_PL.Views
             {
                 MessageBox.Show("Nhập số tiền khách đưa.");
 
+            }
+            else
+            {
 
+            
 
                 var lst = _ibillServices.Get().FirstOrDefault(c => c.Id == _id);
                 if (lst == null)
@@ -463,7 +467,7 @@ namespace _3_PL.Views
         {
             bool tien = Regex.IsMatch(txt_khachthanhtoan.Text, @"[0-9]");
 
-            if (!tien)
+            if (!tien )
             {
                 MessageBox.Show("Nhập số không được nhập chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

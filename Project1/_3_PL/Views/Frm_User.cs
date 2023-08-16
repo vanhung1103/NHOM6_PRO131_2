@@ -65,21 +65,42 @@ namespace _3_PL.Views
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
-            UserView userView = new UserView()
+            if (txt_name.Text == "")
             {
-                UserName = txt_name.Text,
-                PassWord = txt_pass.Text,
-                Email = txt_email.Text,
-                role_Id = _iroleServices.GetRole().FirstOrDefault(c => c.Name == cb_role.Text).Id,
-            };
-            DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dg == DialogResult.Yes)
+                MessageBox.Show("Không để trống username", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }else if (txt_pass.Text == "")
             {
-                MessageBox.Show(_userServices.AddUser(userView));
+                MessageBox.Show("Không để trống pass", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (txt_email.Text == "")
+            {
+                MessageBox.Show("Không để trống email", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else if (cb_role.Text == "")
+            {
+                MessageBox.Show("Không để trống role", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else {
+                UserView userView = new UserView()
+                {
+                    UserName = txt_name.Text,
+                    PassWord = txt_pass.Text,
+                    Email = txt_email.Text,
+                    role_Id = _iroleServices.GetRole().FirstOrDefault(c => c.Name == cb_role.Text).Id,
+                };
+                DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông báo", MessageBoxButtons.YesNo);
+                if (dg == DialogResult.Yes)
+                {
+                    MessageBox.Show(_userServices.AddUser(userView));
+                    LoadToGridView();
+                }
+
                 LoadToGridView();
             }
-
-            LoadToGridView();   
         }
 
 

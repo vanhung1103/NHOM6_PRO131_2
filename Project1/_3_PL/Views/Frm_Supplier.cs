@@ -37,25 +37,34 @@ namespace _3_PL.Views
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
-            var them = new SupplierView()
+            if (txt_name.Text == "")
             {
-                Id = Guid.NewGuid(),
-                Name = txt_name.Text,
-            };
-            if (them.Name == nhacungcaps.Name)
-            {
-                MessageBox.Show("Đã tồn tại nhà cung cấp");
+                MessageBox.Show("Không để tên trống");
             }
             else
             {
-                if (supform.Add(them) != null)
+
+
+                var them = new SupplierView()
                 {
-                    LoadData();
-                    MessageBox.Show("Thêm thành công");
+                    Id = Guid.NewGuid(),
+                    Name = txt_name.Text,
+                };
+                if (them.Name == nhacungcaps.Name)
+                {
+                    MessageBox.Show("Đã tồn tại nhà cung cấp");
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                    if (supform.Add(them) != null)
+                    {
+                        LoadData();
+                        MessageBox.Show("Thêm thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                    }
                 }
             }
         }
@@ -67,16 +76,23 @@ namespace _3_PL.Views
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (nhacungcaps != null)
+            if (txt_name.Text == "")
             {
-                nhacungcaps.Name = txt_name.Text;
-                supform.Update(nhacungcaps);
-                LoadData();
-                MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
+                MessageBox.Show("Không để tên trống");
             }
             else
             {
-                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                if (nhacungcaps != null)
+                {
+                    nhacungcaps.Name = txt_name.Text;
+                    supform.Update(nhacungcaps);
+                    LoadData();
+                    MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                }
             }
         }
 

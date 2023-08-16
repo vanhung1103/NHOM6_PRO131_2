@@ -15,7 +15,6 @@ namespace _2_BUS.ViewModel
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int PurchaseHistory { get; set; }
         public string Feedback { get; set; }
         public Guid Voucher_Id { get; set; }
     }

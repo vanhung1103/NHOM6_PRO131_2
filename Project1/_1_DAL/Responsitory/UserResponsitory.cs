@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,12 @@ namespace _1_DAL.Responsitory
             user = new List<User>();
 
         }
-
+        public User GetAccount(string username, string password)
+        {
+            User account = _context.Users.FirstOrDefault(
+            a => a.UserName == username && a.PassWord == password);
+            return account;
+        }
         public bool CreateUser(User user)
         {
             if (user == null)

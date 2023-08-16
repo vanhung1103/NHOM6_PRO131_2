@@ -68,5 +68,11 @@ namespace _3_PL.Views
         {
             OpenChildForm(new Frm_Voucher());
         }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Frm_ThongKe());
+
+        }
     }
 }

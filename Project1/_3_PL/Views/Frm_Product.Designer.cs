@@ -55,7 +55,13 @@
             label5 = new Label();
             rbtn_ConHang = new RadioButton();
             rbtn_HetHang = new RadioButton();
+            menuStrip1 = new MenuStrip();
+            colorToolStripMenuItem = new ToolStripMenuItem();
+            sizeToolStripMenuItem = new ToolStripMenuItem();
+            categoryToolStripMenuItem = new ToolStripMenuItem();
+            supplierToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dtg_view).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // txt_name
@@ -105,7 +111,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(1, 12);
+            label1.Location = new Point(11, 53);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(59, 25);
@@ -115,7 +121,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1, 95);
+            label2.Location = new Point(1, 121);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(80, 25);
@@ -322,6 +328,44 @@
             rbtn_HetHang.Text = "Hết Hàng";
             rbtn_HetHang.UseVisualStyleBackColor = true;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(24, 24);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { colorToolStripMenuItem, sizeToolStripMenuItem, categoryToolStripMenuItem, supplierToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1511, 33);
+            menuStrip1.TabIndex = 32;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // colorToolStripMenuItem
+            // 
+            colorToolStripMenuItem.Name = "colorToolStripMenuItem";
+            colorToolStripMenuItem.Size = new Size(71, 29);
+            colorToolStripMenuItem.Text = "Color";
+            colorToolStripMenuItem.Click += colorToolStripMenuItem_Click;
+            // 
+            // sizeToolStripMenuItem
+            // 
+            sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
+            sizeToolStripMenuItem.Size = new Size(59, 29);
+            sizeToolStripMenuItem.Text = "Size";
+            sizeToolStripMenuItem.Click += sizeToolStripMenuItem_Click;
+            // 
+            // categoryToolStripMenuItem
+            // 
+            categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
+            categoryToolStripMenuItem.Size = new Size(100, 29);
+            categoryToolStripMenuItem.Text = "Category";
+            categoryToolStripMenuItem.Click += categoryToolStripMenuItem_Click;
+            // 
+            // supplierToolStripMenuItem
+            // 
+            supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
+            supplierToolStripMenuItem.Size = new Size(93, 29);
+            supplierToolStripMenuItem.Text = "Supplier";
+            supplierToolStripMenuItem.Click += supplierToolStripMenuItem_Click;
+            // 
             // Frm_Product
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -354,11 +398,15 @@
             Controls.Add(txt_des);
             Controls.Add(dtg_view);
             Controls.Add(txt_name);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(2);
             Name = "Frm_Product";
             Text = "Frm_Product";
             Load += Frm_Product_Load;
             ((System.ComponentModel.ISupportInitialize)dtg_view).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -392,5 +440,10 @@
         private Label label5;
         private RadioButton rbtn_ConHang;
         private RadioButton rbtn_HetHang;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem colorToolStripMenuItem;
+        private ToolStripMenuItem sizeToolStripMenuItem;
+        private ToolStripMenuItem categoryToolStripMenuItem;
+        private ToolStripMenuItem supplierToolStripMenuItem;
     }
 }

@@ -48,36 +48,49 @@ namespace _3_PL.Views
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
-
-            RoleView roleView = new RoleView()
+            if (txt_name.Text == "")
             {
-                Name = txt_name.Text,
-            };
-            DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông Báo", MessageBoxButtons.YesNo);
-            if (dg == DialogResult.Yes)
+                MessageBox.Show("Không để tên trống");
+            }
+            else
             {
-                MessageBox.Show(roleServices.CreateRole(roleView));
+                RoleView roleView = new RoleView()
+                {
+                    Name = txt_name.Text,
+                };
+                DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông Báo", MessageBoxButtons.YesNo);
+                if (dg == DialogResult.Yes)
+                {
+                    MessageBox.Show(roleServices.CreateRole(roleView));
+                    LoadToGridView();
+                }
                 LoadToGridView();
             }
-            LoadToGridView();
         }
 
 
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            RoleView roleView = new RoleView()
+            if (txt_name.Text == "")
             {
-                Id = _Id,
-                Name = txt_name.Text
-            };
-            DialogResult dg = MessageBox.Show("Bạn có muốn sửa ?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dg == DialogResult.Yes)
+                MessageBox.Show("Không để tên trống");
+            }
+            else
             {
-                MessageBox.Show(roleServices.UpdateRole(roleView));
+                RoleView roleView = new RoleView()
+                {
+                    Id = _Id,
+                    Name = txt_name.Text
+                };
+                DialogResult dg = MessageBox.Show("Bạn có muốn sửa ?", "Thông báo", MessageBoxButtons.YesNo);
+                if (dg == DialogResult.Yes)
+                {
+                    MessageBox.Show(roleServices.UpdateRole(roleView));
+                    LoadToGridView();
+                }
                 LoadToGridView();
             }
-            LoadToGridView();
         }
 
         private void btn_delete_Click(object sender, EventArgs e)

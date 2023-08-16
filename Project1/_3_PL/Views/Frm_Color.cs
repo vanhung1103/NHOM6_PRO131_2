@@ -47,25 +47,32 @@ namespace _3_PL.Views
         
         private void btn_add_Click(object sender, EventArgs e)
         {
-            var them = new ColorView()
+            if (txt_name.Text == "")
             {
-                Id = id,
-                Name = txt_name.Text,
-            };
-            if (them.Name == maus.Name)
-            {
-                MessageBox.Show("Đã tồn tại màu sản phẩm");
+                MessageBox.Show("Không để tên trống");
             }
             else
             {
-                if (colorform.Add(them) != null)
+                var them = new ColorView()
                 {
-                    LoadData();
-                    MessageBox.Show("Thêm thành công");
+                    Id = id,
+                    Name = txt_name.Text,
+                };
+                if (them.Name == maus.Name)
+                {
+                    MessageBox.Show("Đã tồn tại màu sản phẩm");
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                    if (colorform.Add(them) != null)
+                    {
+                        LoadData();
+                        MessageBox.Show("Thêm thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                    }
                 }
             }
         }

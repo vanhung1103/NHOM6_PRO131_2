@@ -2634,23 +2634,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER\\.nuget\\packages\\": {},
+    "C:\\Users\\vanhu\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_1_DAL\\_1_DAL.csproj",
+      "projectUniqueName": "E:\\git_hung\\Project1\\_1_DAL\\_1_DAL.csproj",
       "projectName": "_1_DAL",
-      "projectPath": "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_1_DAL\\_1_DAL.csproj",
-      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ACER\\Desktop\\PROJECT\\Project1\\_1_DAL\\obj\\",
+      "projectPath": "E:\\git_hung\\Project1\\_1_DAL\\_1_DAL.csproj",
+      "packagesPath": "C:\\Users\\vanhu\\.nuget\\packages\\",
+      "outputPath": "E:\\git_hung\\Project1\\_1_DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vanhu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2718,8 +2718,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\git_hung\\Project1\\_1_DAL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

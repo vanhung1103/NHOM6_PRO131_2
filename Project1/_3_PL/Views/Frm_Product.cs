@@ -36,7 +36,7 @@ namespace _3_PL.Views
             _colorServices = new ColorServices();
             _supplierServices = new SupplierServices();
             _lstProduct = new List<ProductView>();
-            _lstProduct = _productService.GetAll();    
+            _lstProduct = _productService.GetAll();
             LoadData(_lstProduct);
             L0ad();
             LoadColor();
@@ -162,10 +162,15 @@ namespace _3_PL.Views
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            bool chuso = Regex.IsMatch(txt_Ma.Text, @"[A-Za-z0-9]");
+            string pattern = @"^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$";
+            bool chuso = Regex.IsMatch(txt_Ma.Text, pattern);
             bool so = Regex.IsMatch(txt_price.Text, @"^[0-9]");
             bool so1 = Regex.IsMatch(txt_quantity.Text, @"^[0-9]");
-           
+            var lst = _productService.GetAll();
+            string maCanKiemTra = txt_Ma.Text;
+
+            bool isMaTrung = lst.Any(product => product.MaSp == maCanKiemTra);
+
             if (txt_name.Text == "")
             {
                 MessageBox.Show("Không để trống tên sản phẩm", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -196,7 +201,7 @@ namespace _3_PL.Views
                 MessageBox.Show("Số lượng quá lớn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            
+
             else if (txt_price.Text == "")
             {
                 MessageBox.Show("Không để trống giá", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -217,13 +222,13 @@ namespace _3_PL.Views
                 MessageBox.Show("Gía quá cao", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            if (txt_Ma.Text == "")
+            else if (txt_Ma.Text == "")
             {
                 MessageBox.Show("Không để mã hóa đơn trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (txt_Ma.Text.Length > 15)
             {
-                MessageBox.Show("Không để mã hóa đơn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Không để mã hóa đơn dài quá 15 kí tự", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (txt_Ma.Text.Contains(" "))
@@ -231,12 +236,16 @@ namespace _3_PL.Views
                 MessageBox.Show("Nhập mã không được chưa dấu cách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+
             else if (!chuso)
             {
                 MessageBox.Show("Nhập mã phải chứa số và chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-
+            else if (isMaTrung)
+            {
+                MessageBox.Show("Mã sản phẩm đã tồn tại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if (txt_des.Text == "")
             {
                 MessageBox.Show("Không để trống mô tả", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -262,7 +271,7 @@ namespace _3_PL.Views
                 MessageBox.Show("Không để trống size", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            
+
             else if (cbx_cate.Text == "")
             {
                 MessageBox.Show("Không để trống cate", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -273,8 +282,8 @@ namespace _3_PL.Views
                 MessageBox.Show("Không để trống nhà cung cấp", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            
-           
+
+
 
             else
             {
@@ -306,9 +315,14 @@ namespace _3_PL.Views
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            bool chuso = Regex.IsMatch(txt_Ma.Text, @"[A-Za-z0-9]");
+            string pattern = @"^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$";
+            bool chuso = Regex.IsMatch(txt_Ma.Text, pattern);
             bool so = Regex.IsMatch(txt_price.Text, @"^[0-9]");
             bool so1 = Regex.IsMatch(txt_quantity.Text, @"^[0-9]");
+            var lst = _productService.GetAll();
+            string maCanKiemTra = txt_Ma.Text;
+
+            bool isMaTrung = lst.Any(product => product.MaSp == maCanKiemTra);
 
             if (txt_name.Text == "")
             {
@@ -361,13 +375,13 @@ namespace _3_PL.Views
                 MessageBox.Show("Gía quá cao", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-            if (txt_Ma.Text == "")
+            else if (txt_Ma.Text == "")
             {
                 MessageBox.Show("Không để mã hóa đơn trống", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (txt_Ma.Text.Length > 15)
             {
-                MessageBox.Show("Không để mã hóa đơn", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Không để mã hóa đơn dài quá 15 kí tự", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else if (txt_Ma.Text.Contains(" "))
@@ -375,6 +389,7 @@ namespace _3_PL.Views
                 MessageBox.Show("Nhập mã không được chưa dấu cách", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+
             else if (!chuso)
             {
                 MessageBox.Show("Nhập mã phải chứa số và chữ", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -417,6 +432,7 @@ namespace _3_PL.Views
                 MessageBox.Show("Không để trống nhà cung cấp", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+
 
 
 
@@ -504,6 +520,34 @@ namespace _3_PL.Views
                 MessageBox.Show("Không tìm thấy");
             }
             LoadData(lst);
+        }
+
+        private void colorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Color frm1 = new Frm_Color();
+            frm1.ShowDialog();
+            frm1.MdiParent = this;
+        }
+
+        private void sizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Size frm2 = new Frm_Size();
+            frm2.ShowDialog();
+            frm2.MdiParent = this;
+        }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Category frm3 = new Frm_Category();
+            frm3.ShowDialog();
+            frm3.MdiParent = this;
+        }
+
+        private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Supplier frm4 = new Frm_Supplier();
+            frm4.ShowDialog();
+            frm4.MdiParent = this;
         }
     }
 }

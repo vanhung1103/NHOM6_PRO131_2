@@ -29,7 +29,6 @@ namespace _2_BUS.Services
                 Address= customer.Address,
                 Phone= customer.Phone,
                 Email= customer.Email,
-                PurchaseHistory= customer.PurchaseHistory,
                 Feedback= customer.Feedback,
                 
 
@@ -60,7 +59,6 @@ namespace _2_BUS.Services
                     Address= a.Address,
                     Phone= a.Phone,
                     Email= a.Email,
-                    PurchaseHistory= a.PurchaseHistory,
                     Feedback= a.Feedback,
                 }
                 ).ToList();
@@ -84,7 +82,6 @@ namespace _2_BUS.Services
                 Address = customer.Address,
                 Phone = customer.Phone,
                 Email = customer.Email,
-                PurchaseHistory = customer.PurchaseHistory,
                 Feedback = customer.Feedback,
             };
             if (_CustomerrRepon.UpdateCustomer(cus)) return "Sửa  thành công!";

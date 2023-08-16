@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -61,25 +62,80 @@ namespace _3_PL.Views
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
-            VoucherView voucherView = new VoucherView()
+            bool so = Regex.IsMatch(txt_minprice.Text, @"^[0-9]");
+            bool so1 = Regex.IsMatch(txt_VoucherPercent.Text, @"^[0-9]");
+
+            if (txt_name.Text == "")
             {
-                Name = txt_name.Text,
-                Create_Date = dtp_createDate.Value,
-                End_Date = dtp_endDate.Value,
-                minPrice = Convert.ToInt32(txt_minprice.Text),
-
-                Status = radioButton1.Checked == true ? 1 : 0,
-
-                Voucher_Percent = float.Parse(txt_VoucherPercent.Text)
-
-            };
-            DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dg == DialogResult.Yes)
-            {
-                MessageBox.Show(voucherServices.AddVoucher(voucherView));
-                LoadToGridView();
+                MessageBox.Show("Không để tên trống");
             }
-            LoadToGridView();
+            else if(dtp_createDate.Created == false)
+            {
+                MessageBox.Show("Không để trống ngày tạo");
+
+            }
+            else if (dtp_createDate.Created == false)
+            {
+                MessageBox.Show("Không để trống ngày tạo");
+
+            }
+            else if (dtp_createDate.Value > dtp_endDate.Value)
+            {
+                MessageBox.Show("Ngày tạo p nhỏ hơn ngày kết thúc");
+
+            }
+            else if (txt_minprice.Text == "")
+            {
+                MessageBox.Show("Không để trống giá áp dụng được voucher");
+
+            }
+            else if (!so)
+            {
+                MessageBox.Show("Nhập số");
+
+            }
+            else if (decimal.Parse(txt_minprice.Text) <= 0)
+            {
+                MessageBox.Show("Không được âm hoặc = 0");
+
+            }
+            else if (txt_VoucherPercent.Text == "")
+             {
+                    MessageBox.Show("Không để trống giá được giảm");
+
+             }
+            else if (!so1)
+            {
+                MessageBox.Show("Nhập số");
+
+            }
+            else if (decimal.Parse(txt_VoucherPercent.Text) <= 0)
+            {
+                MessageBox.Show("Không được âm hoặc = 0");
+
+            }
+            else
+                    {
+                        VoucherView voucherView = new VoucherView()
+                        {
+                            Name = txt_name.Text,
+                            Create_Date = dtp_createDate.Value,
+                            End_Date = dtp_endDate.Value,
+                            minPrice = Convert.ToInt32(txt_minprice.Text),
+
+                            Status = radioButton1.Checked == true ? 1 : 0,
+
+                            Voucher_Percent = float.Parse(txt_VoucherPercent.Text)
+
+                        };
+                        DialogResult dg = MessageBox.Show("Bạn có muốn thêm ?", "Thông báo", MessageBoxButtons.YesNo);
+                        if (dg == DialogResult.Yes)
+                        {
+                            MessageBox.Show(voucherServices.AddVoucher(voucherView));
+                            LoadToGridView();
+                        }
+                        LoadToGridView();
+                    }
         }
 
         private void btn_Update_Click(object sender, EventArgs e)

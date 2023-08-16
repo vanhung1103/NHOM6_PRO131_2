@@ -58,7 +58,6 @@ namespace _1_DAL.Responsitory
             cus.Address = customer.Address;
             cus.Phone = customer.Phone;
             cus.Email = customer.Email;
-            cus.PurchaseHistory = customer.PurchaseHistory;
             cus.Feedback = customer.Feedback;
             _context.Update(cus);
             _context.SaveChanges();

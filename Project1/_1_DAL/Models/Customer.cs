@@ -14,7 +14,6 @@ namespace _1_DAL.Models
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int PurchaseHistory { get; set; }
         public string Feedback { get; set; }
     }
 }

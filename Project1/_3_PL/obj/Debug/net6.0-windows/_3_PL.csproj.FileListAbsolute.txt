@@ -56,7 +56,6 @@ E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_ChangePass.r
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Color.resources
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Customer.resources
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_ForgotPass.resources
-E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Login.resources
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Menu.resources
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Pay.resources
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Product.resources
@@ -79,3 +78,7 @@ E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSys
 E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
 E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\System.Security.Cryptography.Pkcs.dll
 E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Humanizer.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_ThongKe.resources
+E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Login.resources

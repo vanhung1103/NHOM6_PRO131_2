@@ -170,9 +170,6 @@ namespace _1_DAL.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("PurchaseHistory")
-                        .HasColumnType("int");
-
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customers", (string)null);

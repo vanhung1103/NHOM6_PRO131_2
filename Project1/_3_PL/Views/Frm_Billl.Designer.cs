@@ -50,17 +50,22 @@
             textBox1 = new TextBox();
             label4 = new Label();
             button1 = new Button();
+            menuStrip1 = new MenuStrip();
+            billToolStripMenuItem = new ToolStripMenuItem();
+            billDetailToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dtg_show).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(194, 9);
+            label2.Location = new Point(300, 25);
             label2.Name = "label2";
             label2.Size = new Size(163, 25);
             label2.TabIndex = 26;
             label2.Text = "Search theo mã bill";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
@@ -73,7 +78,7 @@
             // 
             // txt_search
             // 
-            txt_search.Location = new Point(268, 38);
+            txt_search.Location = new Point(352, 53);
             txt_search.Name = "txt_search";
             txt_search.Size = new Size(391, 31);
             txt_search.TabIndex = 24;
@@ -226,7 +231,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(773, 38);
+            textBox1.Location = new Point(801, 53);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(298, 31);
             textBox1.TabIndex = 47;
@@ -235,7 +240,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(704, 9);
+            label4.Location = new Point(781, 25);
             label4.Name = "label4";
             label4.Size = new Size(137, 25);
             label4.TabIndex = 48;
@@ -250,6 +255,29 @@
             button1.Text = "Export";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(24, 24);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { billToolStripMenuItem, billDetailToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1443, 33);
+            menuStrip1.TabIndex = 50;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // billToolStripMenuItem
+            // 
+            billToolStripMenuItem.Name = "billToolStripMenuItem";
+            billToolStripMenuItem.Size = new Size(50, 29);
+            billToolStripMenuItem.Text = "Bill";
+            // 
+            // billDetailToolStripMenuItem
+            // 
+            billDetailToolStripMenuItem.Name = "billDetailToolStripMenuItem";
+            billDetailToolStripMenuItem.Size = new Size(95, 29);
+            billDetailToolStripMenuItem.Text = "BillDetail";
+            billDetailToolStripMenuItem.Click += billDetailToolStripMenuItem_Click;
             // 
             // Frm_Billl
             // 
@@ -278,9 +306,14 @@
             Controls.Add(btn_update);
             Controls.Add(btn_add);
             Controls.Add(dtg_show);
+            Controls.Add(menuStrip1);
+            IsMdiContainer = true;
+            MainMenuStrip = menuStrip1;
             Name = "Frm_Billl";
             Text = "Frm_Billl";
             ((System.ComponentModel.ISupportInitialize)dtg_show).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -309,5 +342,8 @@
         private TextBox textBox1;
         private Label label4;
         private Button button1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem billToolStripMenuItem;
+        private ToolStripMenuItem billDetailToolStripMenuItem;
     }
 }

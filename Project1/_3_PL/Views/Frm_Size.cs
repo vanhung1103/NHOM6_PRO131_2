@@ -37,51 +37,65 @@ namespace _3_PL.Views
         }
         private void btn_add_Click(object sender, EventArgs e)
         {
-            var them = new SizeView()
+            if (txt_name.Text == "")
             {
-                Id = id,
-                Name = txt_name.Text,
-            };
-            if (them.Name == kichcos.Name)
-            {
-                MessageBox.Show("Đã tồn tại kích cỡ sản phẩm");
+                MessageBox.Show("Không để tên trống");
             }
             else
             {
-                if (sizeform.Add(them) != null)
+                var them = new SizeView()
                 {
-                    LoadData();
-                    MessageBox.Show("Thêm thành công");
+                    Id = id,
+                    Name = txt_name.Text,
+                };
+                if (them.Name == kichcos.Name)
+                {
+                    MessageBox.Show("Đã tồn tại kích cỡ sản phẩm");
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                    if (sizeform.Add(them) != null)
+                    {
+                        LoadData();
+                        MessageBox.Show("Thêm thành công");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                    }
                 }
             }
-        }
+            }
 
-        private void Frm_Size_Load(object sender, EventArgs e)
+            private void Frm_Size_Load(object sender, EventArgs e)
         {
             LoadData();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            if (kichcos != null)
+            if (txt_name.Text == "")
             {
-                kichcos.Id = id;
-                kichcos.Name = txt_name.Text;
-                sizeform.Update(kichcos);
-                LoadData();
-                MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
+                MessageBox.Show("Không để tên trống");
             }
             else
             {
-                MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                if (kichcos != null)
+                {
+                    kichcos.Id = id;
+                    kichcos.Name = txt_name.Text;
+                    sizeform.Update(kichcos);
+                    LoadData();
+                    MessageBox.Show("Sửa thành công", "Sửa", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
+                }
             }
-        }
+            }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+            private void btn_delete_Click(object sender, EventArgs e)
         {
             if (kichcos != null)
             {

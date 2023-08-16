@@ -26,7 +26,8 @@ namespace _3_PL.Views
             billDetailServices = new BillDetailServices();
             productServices = new ProductService();
             billDetailList = new BillDetail();
-            LoadProduct();
+
+
         }
 
         private void Frm_ThongKe_Load(object sender, EventArgs e)
@@ -47,62 +48,49 @@ namespace _3_PL.Views
         }
         private void Dtg_TKHD_RowsAdded(object? sender, DataGridViewRowsAddedEventArgs e)
         {
-            int rowCount = 0;
-            foreach (DataGridViewRow row in dtg_TKHD.Rows)
-            {
-                bool rowHasData = false;
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (!string.IsNullOrEmpty(cell.Value?.ToString()))
-                    {
-                        rowHasData = true;
-                        break;
-                    }
-                }
-                if (rowHasData)
-                {
-                    rowCount = rowCount + 1;
-                   
-                }
-            }
-            label4.Text= rowCount.ToString();
+
+        }
+        public void Loadđ()
+        {
+            int rowCount = dtg_TKHD.RowCount -1;
+
+            label4.Text = rowCount.ToString();
+            
         }
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            dtg_TKHD.RowsAdded += Dtg_TKHD_RowsAdded;
-            foreach (var x in billServices.Get())
-            {
-                dtg_TKHD.Rows.Clear();
-                dtg_TKHD.Rows.Add(x.MaHD, x.Create_Date, x.Status, x.Name);
-                 
-            }
-            foreach (var x in billDetailServices.Get()) 
-            { 
-                dtg_TKSP.Rows.Clear();
-                dtg_TKSP.Rows.Add( (x.Pro_Id != null) ? productServices.GetAll().FirstOrDefault(c => c.Id == x.Pro_Id).MaSp : " ",
-                    (x.Pro_Id != null) ? productServices.GetAll().FirstOrDefault(c => c.Id == x.Pro_Id).Name : " ",
-                    x.Quantity);
-                label2.Text = (x.Price*x.Quantity).ToString();
-            }
+            lOad();
+            Loadđ();
+
         }
-        public void LoadProduct()
+        public void loadto0(){
+
+        }
+        public void lOad()
         {
-            dtg_TKHD.RowsAdded += Dtg_TKHD_RowsAdded;
+
 
             dtg_TKHD.Rows.Clear();
+            dtg_TKHD.ColumnCount = 4;
+           
+            dtg_TKHD.Columns[0].Name = "Mã hóa đơn";
+            dtg_TKHD.Columns[1].Name = "Tên khách hàng";
+            dtg_TKHD.Columns[2].Name = "Ngày tạo hóa đơn";
+            dtg_TKHD.Columns[3].Name = "Trạng thái";
+            
+                float totalValue = 0; // Khởi tạo biến để tính tổng giá trị
+
             foreach (var x in billServices.Get())
             {
-                dtg_TKHD.Rows.Clear();
-                dtg_TKHD.Rows.Add(x.MaHD, x.Create_Date, x.Status);
+                dtg_TKHD.Rows.Add(x.MaHD,x.Name, x.Create_Date, x.Status == 1 ? "Đã thanh toán" : "Chưa Thanh Toán");
             }
-            dtg_TKSP.Rows.Clear();
+
             foreach (var x in billDetailServices.Get())
             {
-                dtg_TKSP.Rows.Clear();
-                dtg_TKSP.Rows.Add((x.Pro_Id != null) ? productServices.GetAll().FirstOrDefault(c => c.Id == x.Pro_Id).MaSp : " ",
-                    (x.Pro_Id != null) ? productServices.GetAll().FirstOrDefault(c => c.Id == x.Pro_Id).Name : " ",
-                    x.Quantity);
+                totalValue += x.Quantity * x.Price; // Cộng dồn giá trị sản phẩm vào tổng
             }
+
+            label2.Text = totalValue.ToString();
         }
         private void label2_Click(object sender, EventArgs e)
         {
@@ -116,82 +104,159 @@ namespace _3_PL.Views
 
         private void buttonTKNgay_Click(object sender, EventArgs e)
         {
+
+            bool foundDataForDay = false; // Đặt cờ để kiểm tra xem có dữ liệu cho tháng đã chọn hay không
+
             if (cbx_TKNgay.SelectedItem != null)
             {
                 int selectedDay = (int)cbx_TKNgay.SelectedItem;
+                dtg_TKHD.Rows.Clear();
+
                 foreach (var x in billServices.Get())
                 {
                     if (x.Create_Date.Day == selectedDay)
                     {
-                        MessageBox.Show("Đã thống kê được ngày");
-                        dtg_TKHD.Rows.Clear();
-                        dtg_TKHD.Rows.Add(x.MaHD, x.Create_Date, x.Status);
+                        dtg_TKHD.Rows.Add(x.MaHD, x.Create_Date, x.Status, x.Name);
+                        foundDataForDay = true; // Đánh dấu có dữ liệu cho tháng đã chọn
+
+                        foreach (var x1 in billDetailServices.Get())
+                        {
+                            if (x1.Bill_Id == x.Id)
+                            {
+                                label2.Text = (x1.Quantity * x1.Price).ToString();
+                            }
+
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Không có dữ liệu cho ngày này.");
-                    }
+
+
+                }
+
+                if (foundDataForDay)
+                {
+                    MessageBox.Show("Đã thống kê được ngày.");
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu cho ngày này.");
+                    label2.Text = "0";
+                    Loadđ();
                 }
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một ngày từ combobox.");
             }
+
         }
 
         private void buttonTKThang_Click(object sender, EventArgs e)
         {
+            bool foundDataForMonth = false; // Đặt cờ để kiểm tra xem có dữ liệu cho tháng đã chọn hay không
+
             if (cbx_TKThang.SelectedItem != null)
             {
                 int selectedMonth = (int)cbx_TKThang.SelectedItem;
+                dtg_TKHD.Rows.Clear();
+
                 foreach (var x in billServices.Get())
                 {
                     if (x.Create_Date.Month == selectedMonth)
                     {
-                        MessageBox.Show("Đã thống kê được tháng");
-                        dtg_TKHD.Rows.Clear();
-                        dtg_TKHD.Rows.Add(x.MaHD, x.Create_Date, x.Status,x.Name);
+                        dtg_TKHD.Rows.Add(x.MaHD, x.Create_Date, x.Status, x.Name);
+                        foundDataForMonth = true; // Đánh dấu có dữ liệu cho tháng đã chọn
+
+                        foreach (var x1 in billDetailServices.Get())
+                        {
+                            if (x1.Bill_Id == x.Id)
+                            {
+                                label2.Text = (x1.Quantity * x1.Price).ToString();
+                            }
+
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Không có dữ liệu cho tháng này.");
-                    }
+
+
+                }
+                if (foundDataForMonth)
+                {
+                    MessageBox.Show("Đã thống kê được tháng.");
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu cho tháng này.");
+                    label2.Text = "0";
+                    Loadđ();
+
                 }
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một tháng từ combobox.");
             }
+
+
         }
 
         private void buttonTKNam_Click(object sender, EventArgs e)
         {
+            bool foundDataForYear = false; // Đặt cờ để kiểm tra xem có dữ liệu cho tháng đã chọn hay không
+
             if (cbx_TKNam.SelectedItem != null)
             {
                 int selectedYear = (int)cbx_TKNam.SelectedItem;
+                dtg_TKHD.Rows.Clear();
+
                 foreach (var x in billServices.Get())
                 {
                     if (x.Create_Date.Year == selectedYear)
                     {
-                        MessageBox.Show("Đã thống kê được năm");
-                        dtg_TKHD.Rows.Clear();
                         dtg_TKHD.Rows.Add(x.MaHD, x.Create_Date, x.Status, x.Name);
+                        foundDataForYear = true; // Đánh dấu có dữ liệu cho tháng đã chọn
+
+                        foreach (var x1 in billDetailServices.Get())
+                        {
+                            if (x1.Bill_Id == x.Id)
+                            {
+                                label2.Text = (x1.Quantity * x1.Price).ToString();
+                            }
+
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Không có dữ liệu cho năm này.");
-                    }
+
+
+                }
+
+                if (foundDataForYear)
+                {
+                    MessageBox.Show("Đã thống kê được năm.");
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Không có dữ liệu cho năm này.");
+                    label2.Text = "0";
+                    Loadđ();
+
                 }
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một ngày từ combobox.");
             }
+
         }
 
         private void dtg_TKHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             label2.Text = dtg_TKHD.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void dtg_TKHD_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

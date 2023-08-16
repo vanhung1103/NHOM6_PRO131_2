@@ -71,14 +71,13 @@
             // 
             iconButton9.BackColor = Color.RosyBrown;
             iconButton9.Dock = DockStyle.Top;
-            iconButton9.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton9.IconChar = FontAwesome.Sharp.IconChar.Xing;
             iconButton9.IconColor = Color.Black;
+            iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton9.IconSize = 35;
             iconButton9.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton9.Location = new Point(0, 698);
             iconButton9.Name = "iconButton9";
-            iconButton9.Rotation = 0D;
             iconButton9.Size = new Size(300, 62);
             iconButton9.TabIndex = 9;
             iconButton9.Text = "Đăng Xuất";
@@ -90,14 +89,13 @@
             // 
             iconButton8.BackColor = Color.RosyBrown;
             iconButton8.Dock = DockStyle.Top;
-            iconButton8.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton8.IconChar = FontAwesome.Sharp.IconChar.Trello;
             iconButton8.IconColor = Color.Black;
+            iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton8.IconSize = 35;
             iconButton8.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton8.Location = new Point(0, 633);
             iconButton8.Name = "iconButton8";
-            iconButton8.Rotation = 0D;
             iconButton8.Size = new Size(300, 65);
             iconButton8.TabIndex = 8;
             iconButton8.Text = "Tùy Chọn ";
@@ -110,14 +108,13 @@
             // 
             iconButton7.BackColor = Color.RosyBrown;
             iconButton7.Dock = DockStyle.Top;
-            iconButton7.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton7.IconChar = FontAwesome.Sharp.IconChar.Linux;
             iconButton7.IconColor = Color.Black;
+            iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton7.IconSize = 35;
             iconButton7.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton7.Location = new Point(0, 557);
             iconButton7.Name = "iconButton7";
-            iconButton7.Rotation = 0D;
             iconButton7.Size = new Size(300, 76);
             iconButton7.TabIndex = 7;
             iconButton7.Text = "Vai Trò";
@@ -130,33 +127,32 @@
             // 
             iconButton6.BackColor = Color.RosyBrown;
             iconButton6.Dock = DockStyle.Top;
-            iconButton6.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton6.IconChar = FontAwesome.Sharp.IconChar.Dropbox;
             iconButton6.IconColor = Color.Black;
+            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton6.IconSize = 35;
             iconButton6.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton6.Location = new Point(0, 484);
             iconButton6.Name = "iconButton6";
-            iconButton6.Rotation = 0D;
             iconButton6.Size = new Size(300, 73);
             iconButton6.TabIndex = 6;
             iconButton6.Text = "Thống Kê";
             iconButton6.TextAlign = ContentAlignment.MiddleLeft;
             iconButton6.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton6.UseVisualStyleBackColor = false;
+            iconButton6.Click += iconButton6_Click;
             // 
             // iconButton5
             // 
             iconButton5.BackColor = Color.RosyBrown;
             iconButton5.Dock = DockStyle.Top;
-            iconButton5.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton5.IconChar = FontAwesome.Sharp.IconChar.Xing;
             iconButton5.IconColor = Color.Black;
+            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton5.IconSize = 35;
             iconButton5.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton5.Location = new Point(0, 413);
             iconButton5.Name = "iconButton5";
-            iconButton5.Rotation = 0D;
             iconButton5.Size = new Size(300, 71);
             iconButton5.TabIndex = 5;
             iconButton5.Text = "Bán Hàng";
@@ -169,14 +165,13 @@
             // 
             iconButton4.BackColor = Color.RosyBrown;
             iconButton4.Dock = DockStyle.Top;
-            iconButton4.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton4.IconChar = FontAwesome.Sharp.IconChar.Btc;
             iconButton4.IconColor = Color.Black;
+            iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton4.IconSize = 35;
             iconButton4.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton4.Location = new Point(0, 348);
             iconButton4.Name = "iconButton4";
-            iconButton4.Rotation = 0D;
             iconButton4.Size = new Size(300, 65);
             iconButton4.TabIndex = 4;
             iconButton4.Text = "Hóa Đơn ";
@@ -189,14 +184,13 @@
             // 
             iconButton3.BackColor = Color.RosyBrown;
             iconButton3.Dock = DockStyle.Top;
-            iconButton3.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton3.IconChar = FontAwesome.Sharp.IconChar.XingSquare;
             iconButton3.IconColor = Color.Black;
+            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton3.IconSize = 35;
             iconButton3.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton3.Location = new Point(0, 285);
             iconButton3.Name = "iconButton3";
-            iconButton3.Rotation = 0D;
             iconButton3.Size = new Size(300, 63);
             iconButton3.TabIndex = 3;
             iconButton3.Text = "Nhân Viên";
@@ -209,14 +203,13 @@
             // 
             iconButton2.BackColor = Color.RosyBrown;
             iconButton2.Dock = DockStyle.Top;
-            iconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton2.IconChar = FontAwesome.Sharp.IconChar.Youtube;
             iconButton2.IconColor = Color.Black;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.IconSize = 35;
             iconButton2.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton2.Location = new Point(0, 214);
             iconButton2.Name = "iconButton2";
-            iconButton2.Rotation = 0D;
             iconButton2.Size = new Size(300, 71);
             iconButton2.TabIndex = 2;
             iconButton2.Text = "Khách Hàng";
@@ -229,14 +222,13 @@
             // 
             iconButton1.BackColor = Color.RosyBrown;
             iconButton1.Dock = DockStyle.Top;
-            iconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             iconButton1.IconChar = FontAwesome.Sharp.IconChar.Dropbox;
             iconButton1.IconColor = Color.Black;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton1.IconSize = 35;
             iconButton1.ImageAlign = ContentAlignment.MiddleLeft;
             iconButton1.Location = new Point(0, 150);
             iconButton1.Name = "iconButton1";
-            iconButton1.Rotation = 0D;
             iconButton1.Size = new Size(300, 64);
             iconButton1.TabIndex = 1;
             iconButton1.Text = "Sản Phẩm";
