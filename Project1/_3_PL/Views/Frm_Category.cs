@@ -18,6 +18,7 @@ namespace _3_PL.Views
     {
         ICategoryServices cateform;
         CategoryView loaisanphams;
+        Guid id;
         public Frm_Category()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace _3_PL.Views
         }
         private void Frm_Category_Load(object sender, EventArgs e)
         {
-
+            LoadData();
         }
         void LoadData()
         {
@@ -43,7 +44,7 @@ namespace _3_PL.Views
         {
             if (loaisanphams != null)
             {
-                cateform.Remove(loaisanphams.Id);
+                cateform.Remove(loaisanphams.Id=id);
                 LoadData();
                 MessageBox.Show("Xóa thành công", "Xóa", MessageBoxButtons.OK);
             }
@@ -56,6 +57,7 @@ namespace _3_PL.Views
         {
             if (loaisanphams != null)
             {
+                loaisanphams.Id = id;
                 loaisanphams.Name = txt_name.Text;
                 cateform.Update(loaisanphams);
                 LoadData();
@@ -101,7 +103,6 @@ namespace _3_PL.Views
                 dtg_cate.Rows.Add(x.Id, x.Name);
             }
         }
-        Guid id;
         private void dtg_color_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedRow = e.RowIndex;

@@ -18,6 +18,7 @@ namespace _3_PL.Views
     {
         IColorServices colorform;
         ColorView maus;
+        Guid id;
         public Frm_Color()
         {
             InitializeComponent();
@@ -73,6 +74,7 @@ namespace _3_PL.Views
         {
             if (maus != null)
             {
+                maus.Id = id;
                 maus.Name = txt_name.Text;
                 colorform.Update(maus);
                 LoadData();
@@ -88,7 +90,7 @@ namespace _3_PL.Views
         {
             if (maus != null)
             {
-                colorform.Remove(maus.Id);
+                colorform.Remove(maus.Id=id);
                 LoadData();
                 MessageBox.Show("Xóa thành công", "Xóa", MessageBoxButtons.OK);
             }
@@ -108,7 +110,6 @@ namespace _3_PL.Views
                 dtg_color.Rows.Add(x.Id, x.Name);
             }
         }
-        Guid id;
         private void dtg_color_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedRow = e.RowIndex;

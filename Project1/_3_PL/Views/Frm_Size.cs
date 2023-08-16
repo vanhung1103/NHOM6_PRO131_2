@@ -17,6 +17,7 @@ namespace _3_PL.Views
     {
         ISizeServices sizeform;
         SizeView kichcos;
+        Guid id;
         public Frm_Size()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace _3_PL.Views
         {
             var them = new SizeView()
             {
-                Id = Guid.NewGuid(),
+                Id = id,
                 Name = txt_name.Text,
             };
             if (them.Name == kichcos.Name)
@@ -68,6 +69,7 @@ namespace _3_PL.Views
         {
             if (kichcos != null)
             {
+                kichcos.Id = id;
                 kichcos.Name = txt_name.Text;
                 sizeform.Update(kichcos);
                 LoadData();
@@ -83,7 +85,7 @@ namespace _3_PL.Views
         {
             if (kichcos != null)
             {
-                sizeform.Remove(kichcos.Id);
+                sizeform.Remove(kichcos.Id=id);
                 LoadData();
                 MessageBox.Show("Xóa thành công", "Xóa", MessageBoxButtons.OK);
             }
@@ -92,7 +94,6 @@ namespace _3_PL.Views
                 MessageBox.Show("Error", "Lỗi", MessageBoxButtons.OK);
             }
         }
-        Guid id;
         private void dtg_size_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var selectedRow = e.RowIndex;
