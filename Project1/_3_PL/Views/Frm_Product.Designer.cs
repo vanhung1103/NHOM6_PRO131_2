@@ -55,13 +55,11 @@
             label5 = new Label();
             rbtn_ConHang = new RadioButton();
             rbtn_HetHang = new RadioButton();
-            menuStrip1 = new MenuStrip();
-            colorToolStripMenuItem = new ToolStripMenuItem();
-            sizeToolStripMenuItem = new ToolStripMenuItem();
-            categoryToolStripMenuItem = new ToolStripMenuItem();
-            supplierToolStripMenuItem = new ToolStripMenuItem();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtg_view).BeginInit();
-            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // txt_name
@@ -328,49 +326,59 @@
             rbtn_HetHang.Text = "Hết Hàng";
             rbtn_HetHang.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // button1
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { colorToolStripMenuItem, sizeToolStripMenuItem, categoryToolStripMenuItem, supplierToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1511, 33);
-            menuStrip1.TabIndex = 32;
-            menuStrip1.Text = "menuStrip1";
+            button1.Location = new Point(111, 6);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 32;
+            button1.Text = "Color";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // colorToolStripMenuItem
+            // button2
             // 
-            colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            colorToolStripMenuItem.Size = new Size(71, 29);
-            colorToolStripMenuItem.Text = "Color";
-            colorToolStripMenuItem.Click += colorToolStripMenuItem_Click;
+            button2.Location = new Point(467, 6);
+            button2.Margin = new Padding(2);
+            button2.Name = "button2";
+            button2.Size = new Size(112, 34);
+            button2.TabIndex = 33;
+            button2.Text = "Supplier";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // sizeToolStripMenuItem
+            // button3
             // 
-            sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-            sizeToolStripMenuItem.Size = new Size(59, 29);
-            sizeToolStripMenuItem.Text = "Size";
-            sizeToolStripMenuItem.Click += sizeToolStripMenuItem_Click;
+            button3.Location = new Point(351, 6);
+            button3.Margin = new Padding(2);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 34);
+            button3.TabIndex = 34;
+            button3.Text = "Category";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
-            // categoryToolStripMenuItem
+            // button4
             // 
-            categoryToolStripMenuItem.Name = "categoryToolStripMenuItem";
-            categoryToolStripMenuItem.Size = new Size(100, 29);
-            categoryToolStripMenuItem.Text = "Category";
-            categoryToolStripMenuItem.Click += categoryToolStripMenuItem_Click;
-            // 
-            // supplierToolStripMenuItem
-            // 
-            supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            supplierToolStripMenuItem.Size = new Size(93, 29);
-            supplierToolStripMenuItem.Text = "Supplier";
-            supplierToolStripMenuItem.Click += supplierToolStripMenuItem_Click;
+            button4.Location = new Point(227, 6);
+            button4.Margin = new Padding(2);
+            button4.Name = "button4";
+            button4.Size = new Size(112, 34);
+            button4.TabIndex = 35;
+            button4.Text = "Size";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Frm_Product
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1511, 652);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(rbtn_HetHang);
             Controls.Add(rbtn_ConHang);
             Controls.Add(label5);
@@ -398,15 +406,11 @@
             Controls.Add(txt_des);
             Controls.Add(dtg_view);
             Controls.Add(txt_name);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
             Margin = new Padding(2);
             Name = "Frm_Product";
             Text = "Frm_Product";
             Load += Frm_Product_Load;
             ((System.ComponentModel.ISupportInitialize)dtg_view).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -440,10 +444,9 @@
         private Label label5;
         private RadioButton rbtn_ConHang;
         private RadioButton rbtn_HetHang;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem colorToolStripMenuItem;
-        private ToolStripMenuItem sizeToolStripMenuItem;
-        private ToolStripMenuItem categoryToolStripMenuItem;
-        private ToolStripMenuItem supplierToolStripMenuItem;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }

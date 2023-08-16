@@ -524,30 +524,46 @@ namespace _3_PL.Views
 
         private void colorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Color frm1 = new Frm_Color();
-            frm1.ShowDialog();
-            frm1.MdiParent = this;
+            
         }
 
         private void sizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Size frm2 = new Frm_Size();
-            frm2.ShowDialog();
-            frm2.MdiParent = this;
+            
         }
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_Category frm3 = new Frm_Category();
-            frm3.ShowDialog();
-            frm3.MdiParent = this;
+            
         }
 
         private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Frm_Color frm1 = new Frm_Color();
+            frm1.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Frm_Size frm2 = new Frm_Size();
+            frm2.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Frm_Category frm3 = new Frm_Category();
+            frm3.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             Frm_Supplier frm4 = new Frm_Supplier();
             frm4.ShowDialog();
-            frm4.MdiParent = this;
         }
     }
 }

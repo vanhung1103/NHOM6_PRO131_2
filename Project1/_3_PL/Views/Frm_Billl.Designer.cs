@@ -50,11 +50,8 @@
             textBox1 = new TextBox();
             label4 = new Label();
             button1 = new Button();
-            menuStrip1 = new MenuStrip();
-            billToolStripMenuItem = new ToolStripMenuItem();
-            billDetailToolStripMenuItem = new ToolStripMenuItem();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtg_show).BeginInit();
-            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label2
@@ -256,34 +253,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // menuStrip1
+            // button2
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { billToolStripMenuItem, billDetailToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1443, 33);
-            menuStrip1.TabIndex = 50;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // billToolStripMenuItem
-            // 
-            billToolStripMenuItem.Name = "billToolStripMenuItem";
-            billToolStripMenuItem.Size = new Size(50, 29);
-            billToolStripMenuItem.Text = "Bill";
-            // 
-            // billDetailToolStripMenuItem
-            // 
-            billDetailToolStripMenuItem.Name = "billDetailToolStripMenuItem";
-            billDetailToolStripMenuItem.Size = new Size(95, 29);
-            billDetailToolStripMenuItem.Text = "BillDetail";
-            billDetailToolStripMenuItem.Click += billDetailToolStripMenuItem_Click;
+            button2.Location = new Point(66, 29);
+            button2.Name = "button2";
+            button2.Size = new Size(133, 49);
+            button2.TabIndex = 50;
+            button2.Text = "Bill Detail";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Frm_Billl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1443, 695);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(textBox1);
@@ -306,14 +291,9 @@
             Controls.Add(btn_update);
             Controls.Add(btn_add);
             Controls.Add(dtg_show);
-            Controls.Add(menuStrip1);
-            IsMdiContainer = true;
-            MainMenuStrip = menuStrip1;
             Name = "Frm_Billl";
             Text = "Frm_Billl";
             ((System.ComponentModel.ISupportInitialize)dtg_show).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -342,8 +322,6 @@
         private TextBox textBox1;
         private Label label4;
         private Button button1;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem billToolStripMenuItem;
-        private ToolStripMenuItem billDetailToolStripMenuItem;
+        private Button button2;
     }
 }

@@ -397,9 +397,15 @@ namespace _3_PL.Views
 
         private void billDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Frm_BillDetail  frm = new Frm_BillDetail();
+            Frm_BillDetail frm = new Frm_BillDetail();
             frm.ShowDialog();
             frm.MdiParent = this;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Frm_BillDetail frm = new Frm_BillDetail();
+            frm.ShowDialog();
         }
     }
 }
