@@ -49,6 +49,7 @@
             label3 = new Label();
             textBox1 = new TextBox();
             label4 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtg_show).BeginInit();
             SuspendLayout();
             // 
@@ -240,11 +241,22 @@
             label4.TabIndex = 48;
             label4.Text = "Search theo Sđt";
             // 
+            // button1
+            // 
+            button1.Location = new Point(1227, 292);
+            button1.Name = "button1";
+            button1.Size = new Size(133, 49);
+            button1.TabIndex = 49;
+            button1.Text = "Export";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Frm_Billl
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1443, 695);
+            Controls.Add(button1);
             Controls.Add(label4);
             Controls.Add(textBox1);
             Controls.Add(label3);
@@ -296,5 +308,6 @@
         private Label label3;
         private TextBox textBox1;
         private Label label4;
+        private Button button1;
     }
 }

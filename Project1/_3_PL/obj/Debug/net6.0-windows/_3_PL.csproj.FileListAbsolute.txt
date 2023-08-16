@@ -67,3 +67,15 @@ E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Supplier.res
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_User.resources
 E:\git_hung\Project1\_3_PL\obj\Debug\net6.0-windows\_3_PL.Views.Frm_Voucher.resources
 E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\EPPlus.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\EPPlus.Interfaces.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\EPPlus.System.Drawing.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Json.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\System.Security.Cryptography.Pkcs.dll
+E:\git_hung\Project1\_3_PL\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll

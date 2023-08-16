@@ -1,6 +1,7 @@
 ﻿using _2_BUS.IServices;
 using _2_BUS.Services;
 using _2_BUS.ViewModel;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -292,6 +293,41 @@ namespace _3_PL.Views
             }
             LoadToGridView(a);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (var package = new ExcelPackage())
+                {
+                    var worksheet = package.Workbook.Worksheets.Add("Sheet1");
+
+                    // Export column headers
+                    for (int col = 1; col <= dtg_show.Columns.Count; col++)
+                    {
+                        worksheet.Cells[1, col].Value = dtg_show.Columns[col - 1].HeaderText;
+                    }
+
+                    // Export data
+                    for (int row = 0; row < dtg_show.Rows.Count; row++)
+                    {
+                        for (int col = 0; col < dtg_show.Columns.Count; col++)
+                        {
+                            worksheet.Cells[row + 2, col + 1].Value = dtg_show.Rows[row].Cells[col].Value;
+                        }
+                    }
+
+                    // Save the Excel file
+                    FileInfo excelFile = new FileInfo(saveFileDialog.FileName);
+                    package.SaveAs(excelFile);
+                }
+
+                MessageBox.Show("successfully!");
+            }
         }
     }
 }
